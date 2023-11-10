@@ -23,6 +23,8 @@ import {
   jira,
   bitbucket,
   proxmox,
+  qt,
+  mui,
 } from "../assets";
 
 const technologies = [
@@ -34,6 +36,11 @@ const technologies = [
   {
     name: "Python",
     icon: python,
+    lightbackground: false,
+  },
+  {
+    name: "PyQt",
+    icon: qt,
     lightbackground: false,
   },
   {
@@ -69,6 +76,11 @@ const technologies = [
   {
     name: "Tailwind CSS",
     icon: tailwind,
+    lightbackground: false,
+  },
+  {
+    name: "Material UI",
+    icon: mui,
     lightbackground: false,
   },
   {

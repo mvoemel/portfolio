@@ -36,6 +36,8 @@ import confluence from "./tech/confluence.png";
 import jira from "./tech/jira.png";
 import bitbucket from "./tech/bitbucket.png";
 import proxmox from "./tech/proxmox.png";
+import qt from "./tech/qt.png";
+import mui from "./tech/mui.png";
 
 import meta from "./company/meta.png";
 import eps from "./company/eps.png";
@@ -45,6 +47,8 @@ import sai from "./company/sai.png";
 import profilepicture from "./profilepicture.jpg";
 
 import PLACEHOLDER from "./projects/PLACEHOLDER.jpg";
+import portfolio from "./projects/portfolio.jpeg";
+import mems from "./projects/mems.png";
 
 export {
   logo,
@@ -84,7 +88,11 @@ export {
   jira,
   bitbucket,
   proxmox,
+  qt,
+  mui,
   productpage,
   livedemo,
   PLACEHOLDER,
+  portfolio,
+  mems,
 };

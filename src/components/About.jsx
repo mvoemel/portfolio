@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/no-unknown-property */
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
@@ -54,7 +55,8 @@ const About = () => {
         <span className="text-[#915EFF]">JavaScript</span>,{" "}
         <span className="text-[#915EFF]">Java</span>,{" "}
         <span className="text-[#915EFF]">Python</span> and skilled with using
-        frameworks like <span className="text-[#915EFF]">React</span>,{" "}
+        frameworks and environments like{" "}
+        <span className="text-[#915EFF]">React</span>,{" "}
         <span className="text-[#915EFF]">Node.js</span>, and{" "}
         <span className="text-[#915EFF]">Express</span>.
         <br />I get excited about opportunities where I can innovate,
