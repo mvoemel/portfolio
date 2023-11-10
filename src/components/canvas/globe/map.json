@@ -1,0 +1,254 @@
+{
+  "type": "Map",
+  "coordinates": [
+    {
+      "text": "IND",
+      "size": 1.0,
+      "country": "India",
+      "city": "Chennai",
+      "lat": "13.089869",
+      "lng": "80.245901"
+    },
+    {
+      "text": "UAE",
+      "size": 1.0,
+      "country": "United Arab Emirates",
+      "city": "Dubai",
+      "lat": "23.214066",
+      "lng": "53.195262"
+    },
+    {
+      "text": "CHE",
+      "size": 1.0,
+      "country": "Switzerland",
+      "city": "Zurich",
+      "lat": "47.377729",
+      "lng": "8.542516"
+    },
+    {
+      "text": "CHE",
+      "size": 1.0,
+      "country": "Switzerland",
+      "city": "Widnau",
+      "lat": "47.404412",
+      "lng": "9.635340"
+    },
+    {
+      "text": "GBR",
+      "size": 1.0,
+      "country": "United Kingdom of Great Britain",
+      "city": "London",
+      "lat": "51.504495",
+      "lng": "-0.073031"
+    },
+    {
+      "text": "FRA",
+      "size": 1.0,
+      "country": "France",
+      "city": "Paris",
+      "lat": "48.854313",
+      "lng": "2.352260"
+    },
+    {
+      "text": "ESP",
+      "size": 1.0,
+      "country": "Spain",
+      "city": "Madrid",
+      "lat": "40.415444",
+      "lng": "-3.704558"
+    },
+    {
+      "text": "PRT",
+      "size": 1.0,
+      "country": "Portugal",
+      "city": "Lissabon",
+      "lat": "38.709597",
+      "lng": "-9.113670"
+    },
+
+    {
+      "text": "DEU",
+      "size": 1.0,
+      "country": "Germany",
+      "city": "Berlin",
+      "lat": "52.517988",
+      "lng": "13.402940"
+    },
+    {
+      "text": "SWE",
+      "size": 1.0,
+      "country": "Sweden",
+      "city": "Stockholm",
+      "lat": "59.324942",
+      "lng": "18.058754"
+    },
+    {
+      "text": "POL",
+      "size": 1.0,
+      "country": "Poland",
+      "city": "Warschau",
+      "lat": "52.238872",
+      "lng": "21.037327"
+    },
+    {
+      "text": "RUS",
+      "size": 1.0,
+      "country": "Russia",
+      "city": "Moskau",
+      "lat": "55.737968",
+      "lng": "37.606630"
+    },
+    {
+      "text": "ITA",
+      "size": 1.0,
+      "country": "Italy",
+      "city": "Palermo",
+      "lat": "38.119180",
+      "lng": "13.380288"
+    },
+    {
+      "text": "TUR",
+      "size": 1.0,
+      "country": "Turkey",
+      "city": "Ankara",
+      "lat": "39.936932",
+      "lng": "32.850628"
+    },
+    {
+      "text": "EGY",
+      "size": 1.0,
+      "country": "Egypt",
+      "city": "Kairo",
+      "lat": "30.045596",
+      "lng": "31.229551"
+    },
+    {
+      "text": "ESP",
+      "size": 1.0,
+      "country": "Spain",
+      "city": "Gran Canaria",
+      "lat": "28.141691",
+      "lng": "-15.398469"
+    },
+    {
+      "text": "NER",
+      "size": 1.0,
+      "country": "Niger",
+      "city": "Niamey",
+      "lat": "13.494482",
+      "lng": "2.115019"
+    },
+    {
+      "text": "MDG",
+      "size": 1.0,
+      "country": "Madagascar",
+      "city": "Antananarivo",
+      "lat": "-18.881071",
+      "lng": "47.529114"
+    },
+    {
+      "text": "ZAF",
+      "size": 1.0,
+      "country": "South Africa",
+      "city": "Bloemfontein",
+      "lat": "-29.090246",
+      "lng": "26.171164"
+    },
+    {
+      "text": "THA",
+      "size": 1.0,
+      "country": "Thailand",
+      "city": "Bangkok",
+      "lat": "13.461234",
+      "lng": "100.582596"
+    },
+    {
+      "text": "AUS",
+      "size": 1.0,
+      "country": "Australia",
+      "city": "Sydney",
+      "lat": "-33.855858",
+      "lng": "151.235956"
+    },
+    {
+      "text": "JPN",
+      "size": 1.0,
+      "country": "Japan",
+      "city": "Tokyo",
+      "lat": "35.626314",
+      "lng": "139.818739"
+    },
+    {
+      "text": "CAN",
+      "size": 1.0,
+      "country": "Canada",
+      "city": "Vancouver",
+      "lat": "49.297506",
+      "lng": "-123.089675"
+    },
+    {
+      "text": "CAN",
+      "size": 1.0,
+      "country": "Canada",
+      "city": "Halifax",
+      "lat": "44.657959",
+      "lng": "-63.570565"
+    },
+    {
+      "text": "USA",
+      "size": 1.0,
+      "country": "United States of America",
+      "city": "Washington DC",
+      "lat": "38.882017",
+      "lng": "-77.051465"
+    },
+    {
+      "text": "USA",
+      "size": 1.0,
+      "country": "United States of America",
+      "city": "Las Vegas",
+      "lat": "36.174373",
+      "lng": "-115.155063"
+    },
+    {
+      "text": "CUB",
+      "size": 1.0,
+      "country": "Cuba",
+      "city": "Havanna",
+      "lat": "23.123863",
+      "lng": "-82.352444"
+    },
+    {
+      "text": "BRA",
+      "size": 1.0,
+      "country": "Brazil",
+      "city": "Rio de Janeiro",
+      "lat": "-22.941456",
+      "lng": "-43.142896"
+    },
+    {
+      "text": "ARG",
+      "size": 1.0,
+      "country": "Argentina",
+      "city": "Comodoro Rivadavia",
+      "lat": "-45.870311",
+      "lng": "-67.483330"
+    },
+    {
+      "text": "COL",
+      "size": 1.0,
+      "country": "Colombia",
+      "city": "Bogota",
+      "lat": "4.705687",
+      "lng": "-74.085359"
+    },
+    {
+      "text": "USA",
+      "size": 1.0,
+      "country": "United States of America",
+      "city": "Honolulu",
+      "lat": "21.279738",
+      "lng": "-157.873496"
+    }
+  ]
+}
