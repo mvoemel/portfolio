@@ -6,6 +6,7 @@ import mobile from "./symbols/mobile.png";
 import web from "./symbols/web.png";
 
 import github from "./github.png";
+import linkedin from "./linkedin.png";
 import productpage from "./product-category.png";
 import livedemo from "./play.png";
 
@@ -38,6 +39,7 @@ import bitbucket from "./tech/bitbucket.png";
 import proxmox from "./tech/proxmox.png";
 import qt from "./tech/qt.png";
 import mui from "./tech/mui.png";
+import framermotion from "./tech/framermotion.png";
 
 import meta from "./company/meta.png";
 import eps from "./company/eps.png";
@@ -57,6 +59,7 @@ export {
   mobile,
   web,
   github,
+  linkedin,
   menu,
   close,
   css,
@@ -90,6 +93,7 @@ export {
   proxmox,
   qt,
   mui,
+  framermotion,
   productpage,
   livedemo,
   PLACEHOLDER,

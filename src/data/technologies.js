@@ -25,6 +25,7 @@ import {
   proxmox,
   qt,
   mui,
+  framermotion,
 } from "../assets";
 
 const technologies = [
@@ -81,6 +82,11 @@ const technologies = [
   {
     name: "Material UI",
     icon: mui,
+    lightbackground: false,
+  },
+  {
+    name: "Framer Motion",
+    icon: framermotion,
     lightbackground: false,
   },
   {
