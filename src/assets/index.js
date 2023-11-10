@@ -48,7 +48,7 @@ import sai from "./company/sai.png";
 
 import profilepicture from "./profilepicture.jpg";
 
-import PLACEHOLDER from "./projects/PLACEHOLDER.jpg";
+import PLACEHOLDER from "./projects/PLACEHOLDER.png";
 import portfolio from "./projects/portfolio.jpeg";
 import mems from "./projects/mems.png";
 
