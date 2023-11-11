@@ -31,7 +31,6 @@ const Contact = () => {
     });
   };
 
-  // TODO: either implment using emailjs or change to other email provider service
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -66,7 +65,9 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          setFailmsg("Ahh, something went wrong. Please try again.");
+          setFailmsg(
+            `An error occurred while trying to send: ${error.message}`
+          );
         }
       );
   };
@@ -129,8 +130,8 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send"}
           </button>
-          {successmsg && <h3 className="text-green">{successmsg}</h3>}
-          {failmsg && <h3 className="text-green">{failmsg}</h3>}
+          {successmsg && <h3 className="text-green-700">{successmsg}</h3>}
+          {failmsg && <h3 className="text-red-700">{failmsg}</h3>}
         </form>
       </motion.div>
 
