@@ -7,13 +7,13 @@ import {
   redux,
   tailwind,
   nodejs,
-  nextjs,
+  // nextjs,
   expressjs,
-  postgresql,
+  // postgresql,
   mongodb,
   git,
   // figma,
-  docker,
+  // docker,
   threejs,
   java,
   python,
@@ -22,7 +22,7 @@ import {
   confluence,
   jira,
   bitbucket,
-  proxmox,
+  // proxmox,
   qt,
   mui,
   framermotion,
@@ -94,11 +94,11 @@ const technologies = [
     icon: nodejs,
     lightbackground: false,
   },
-  {
-    name: "Next JS",
-    icon: nextjs,
-    lightbackground: true,
-  },
+  // {
+  //   name: "Next JS",
+  //   icon: nextjs,
+  //   lightbackground: true,
+  // },
   {
     name: "Express JS",
     icon: expressjs,
@@ -119,11 +119,11 @@ const technologies = [
     icon: sqlite,
     lightbackground: false,
   },
-  {
-    name: "PostgreSQL",
-    icon: postgresql,
-    lightbackground: false,
-  },
+  // {
+  //   name: "PostgreSQL",
+  //   icon: postgresql,
+  //   lightbackground: false,
+  // },
   {
     name: "Three JS",
     icon: threejs,
@@ -149,16 +149,16 @@ const technologies = [
     icon: git,
     lightbackground: false,
   },
-  {
-    name: "Docker",
-    icon: docker,
-    lightbackground: false,
-  },
-  {
-    name: "Proxmox",
-    icon: proxmox,
-    lightbackground: false,
-  },
+  // {
+  //   name: "Docker",
+  //   icon: docker,
+  //   lightbackground: false,
+  // },
+  // {
+  //   name: "Proxmox",
+  //   icon: proxmox,
+  //   lightbackground: false,
+  // },
 ];
 
 export default technologies;

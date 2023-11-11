@@ -13,4 +13,7 @@ const navLinks = [
   },
 ];
 
-export { navLinks };
+const linkedInUrl = "https://www.linkedin.com/in/mvoemel/";
+const githubUrl = "https://github.com/mvoemel";
+
+export { navLinks, linkedInUrl, githubUrl };
