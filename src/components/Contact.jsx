@@ -35,6 +35,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    // https://dashboard.emailjs.com/sign-in
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
