@@ -8,6 +8,8 @@ import countries from "./globe/globe-data.json";
 import lines from "./globe/lines.json";
 import map from "./globe/map.json";
 
+// BUG: disable Orbital controlls in mobile mode
+
 const GlobeObject = () => {
   const globeEl = useRef();
 
