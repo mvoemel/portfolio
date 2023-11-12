@@ -16,6 +16,9 @@ import { StarsCanvas /*, RippleCanvas*/ } from "./components/canvas";
 // TODO: implement RippleCanvas
 // TODO: implement Testimonials
 
+// TODO: Experience - Some Examples of my Work, Projects - Some of my Work
+// -> change to better naming for Experience and Projects
+
 const App = () => {
   return (
     <BrowserRouter>
