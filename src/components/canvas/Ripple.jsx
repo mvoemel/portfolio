@@ -4,6 +4,9 @@ import { Points, PointMaterial, Preload } from "@react-three/drei";
 
 // TODO: fix bug using "ref": in useFrame ref.current.array throws exception
 /*
+https://codesandbox.io/s/point-forked-x3fc01
+https://codesandbox.io/s/points-ldpyw8?file=/src/index.js
+
 function BufferPoints({ count = 10000 }) {
   const points = useMemo(() => {
     const p = new Array(count).fill(0).map((v) => (0.5 - Math.random()) * 20);
