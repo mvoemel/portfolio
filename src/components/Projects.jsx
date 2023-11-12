@@ -114,10 +114,12 @@ const Projects = () => {
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Following projects showcases my skills and experience through
-          real-world examples of my work. Some projects have a public
-          repository, some have a live demonstation page and some have a product
-          page. It reflects my ability to solve complex problems, work with
-          different technologies, and manage projects effectively.
+          real-world examples of my work. Some projects have a{" "}
+          <span className="text-[#915EFF]">public repository</span>, some have a{" "}
+          <span className="text-[#915EFF]">live demonstation</span> page and
+          some have a <span className="text-[#915EFF]">product page</span>. It
+          reflects my ability to solve complex problems, work with different
+          technologies, and manage projects effectively.
         </motion.p>
       </div>
 
