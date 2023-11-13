@@ -70,3 +70,4 @@ const Testimonials = () => {
 };
 
 export default SectionWrapper(Testimonials, "");
+// export default Testimonials;

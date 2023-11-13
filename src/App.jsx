@@ -20,6 +20,7 @@ import { StarsCanvas /*, RippleCanvas*/ } from "./components/canvas";
 // -> change to better naming for Experience and Projects
 
 // BUG: on IOS Technologies Section does not get displayed (tested with Safari and Brave)
+// because of SectionWrapper, as soon as the SectionWrapper is commented out in Tech it works
 
 const App = () => {
   return (
