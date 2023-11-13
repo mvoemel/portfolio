@@ -25,7 +25,7 @@ const TechCard = ({ index, name, icon, lightbackground }) => (
       >
         <img
           src={icon}
-          alt="web-development"
+          alt={name}
           className={`w-12 h-12 object-contain ${
             lightbackground && "bg-secondary rounded-[50px]"
           }`}
@@ -58,4 +58,5 @@ const Tech = () => {
   );
 };
 
-export default SectionWrapper(Tech, "");
+// export default SectionWrapper(Tech, "");
+export default Tech;
