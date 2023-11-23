@@ -40,6 +40,8 @@ import proxmox from "./tech/proxmox.png";
 import qt from "./tech/qt.png";
 import mui from "./tech/mui.png";
 import framermotion from "./tech/framermotion.png";
+import wordpress from "./tech/wordpress.png";
+import divi from "./tech/divi.png";
 
 import meta from "./company/meta.png";
 import eps from "./company/eps.png";
@@ -94,6 +96,8 @@ export {
   qt,
   mui,
   framermotion,
+  wordpress,
+  divi,
   productpage,
   livedemo,
   PLACEHOLDER,

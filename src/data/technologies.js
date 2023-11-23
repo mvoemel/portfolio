@@ -26,6 +26,8 @@ import {
   qt,
   mui,
   framermotion,
+  wordpress,
+  divi,
 } from "../assets";
 
 const technologies = [
@@ -128,6 +130,16 @@ const technologies = [
     name: "Three JS",
     icon: threejs,
     lightbackground: true,
+  },
+  {
+    name: "Wordpress",
+    icon: wordpress,
+    lightbackground: false,
+  },
+  {
+    name: "Divi Theme",
+    icon: divi,
+    lightbackground: false,
   },
   {
     name: "Confluence",

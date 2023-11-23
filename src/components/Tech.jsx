@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/no-unknown-property */
-// import SectionWrapper from "./SectionWrapper";
+import SectionWrapper from "./SectionWrapper";
 import { technologies } from "../data";
 
 import Tilt from "react-parallax-tilt";
@@ -58,5 +58,5 @@ const Tech = () => {
   );
 };
 
-// export default SectionWrapper(Tech, "");
-export default Tech;
+export default SectionWrapper(Tech, "tech");
+// export default Tech;
