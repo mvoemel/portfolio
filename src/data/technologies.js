@@ -31,9 +31,16 @@ import {
   webflow,
   gitlab,
   github,
+  c,
 } from "../assets";
 
 const technologies = [
+  {
+    category: "Languages",
+    name: "C",
+    icon: c,
+    lightbackground: false,
+  },
   {
     category: "Languages",
     name: "Java",

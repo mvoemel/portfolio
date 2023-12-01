@@ -26,7 +26,7 @@ const projects = [
   {
     name: "Adverse Event",
     description:
-      "This project is a fullstack application that allows you to manage risks in your company. This application was developed by me.",
+      "This project is a fullstack application that allows you to manage risks in your company. This application showcases my fullstack experience.",
     tags: [
       {
         name: "mern stack",
@@ -51,7 +51,7 @@ const projects = [
   {
     name: "MEMS",
     description:
-      "The Measurement Equipment Managing System is a desktop application that allows you to manage Measurement and Testing equipment. This application was developed by me.",
+      "The Measurement Equipment Managing System is a desktop application that allows you to manage Measurement and Testing equipment. This application showcases my desktop application programming skills.",
     tags: [
       {
         name: "python",
@@ -66,7 +66,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: mems, // TODO: make better picture
+    image: mems,
     product_page_url: "https://sma-webpage.ch/produkte/mems/",
   },
   {

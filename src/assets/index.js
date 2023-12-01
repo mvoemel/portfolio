@@ -44,6 +44,7 @@ import wordpress from "./tech/wordpress.png";
 import divi from "./tech/divi.png";
 import webflow from "./tech/webflow.png";
 import gitlab from "./tech/gitlab.svg";
+import c from "./tech/c.png";
 
 import meta from "./company/meta.png";
 import eps from "./company/eps.png";
@@ -109,4 +110,5 @@ export {
   adverseevent,
   webflow,
   gitlab,
+  c,
 };
