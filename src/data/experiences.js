@@ -6,6 +6,7 @@ const experiences = [
   {
     title: "Web Developer",
     company_name: "Swiss Aviation Interiors GmbH",
+    comnpany_link: "https://www.swissinteriors.ch/",
     icon: sai,
     iconBg: "#E6DEDD",
     date: "July 2020 - September 2020",
@@ -15,6 +16,8 @@ const experiences = [
       "Designing and optimizing their official website and implementing a newsletter functionality",
       "Implemented responsive design and ensuring cross-browser compatibility.",
       "Participated in a testing phase and integrating changed and improved features",
+      "Als Hilfskraft in gewissen Bereichen in Luftfahrt Innenausbau Prozessen tätig",
+      "Webseite [Stand: 08/08/2023] für Swiss Aviation Interiors GmbH entwickelt und stetige Betreuung",
     ],
   },
   {
@@ -28,6 +31,10 @@ const experiences = [
       "Designing and developing their official website using HTML, CSS, and JavaScript",
       "Developing a desktop application called MEMS",
       "Developing a fullstack application called AdverseEvent",
+      "Quality Manager (interne / externe Audits)",
+      "Desktopapplikation «MEMS» [Stand: 08/08/2023, Version 2.4] für Microshield entwickelt",
+      "Webapplikation «Adverse Event» [Stand: 08/08/2023] momentan in der Entwicklung",
+      "Webseite [Stand: 08/08/2023] für Microshield AG entwickelt",
     ],
   },
   {
@@ -39,6 +46,10 @@ const experiences = [
     points: [
       // TODO: formulate better
       "Working with the Atlassian Team to further develop the server and cloud plugins for Atlassian Confluence.",
+      "Entwicklung von Atlassian Confluence Plugin “Easy Confluence Translator für Server”",
+      "Entwicklung von Atlassian Confluence Plugin “Easy Dropdown Menu für Cloud”",
+      "Bugfixes und Improvements",
+      "Erledigung von Service Desk Tickets für das Atlassian Team und Betreuung vom EPS-Telefon",
     ],
   },
   {

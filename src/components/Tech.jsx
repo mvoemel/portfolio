@@ -50,13 +50,61 @@ const Tech = () => {
       </motion.div>
 
       <div className="mt-20 flex flex-row flex-wrap justify-center gap-10">
-        {technologies.map((tech, index) => (
-          <TechCard key={tech.title} index={index} {...tech} />
-        ))}
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>
+          Languages
+        </h3>
+        {technologies
+          .filter((tech) => tech.category === "Languages")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
+
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>
+          Frameworks
+        </h3>
+        {technologies
+          .filter((tech) => tech.category === "Frameworks")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
+
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>
+          Environments
+        </h3>
+        {technologies
+          .filter((tech) => tech.category === "Environments")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
+
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>
+          DataBases
+        </h3>
+        {technologies
+          .filter((tech) => tech.category === "DataBases")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
+
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>
+          DevOps
+        </h3>
+        {technologies
+          .filter((tech) => tech.category === "DevOps")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
+
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>Other</h3>
+        {technologies
+          .filter((tech) => tech.category === "Other")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
       </div>
     </>
   );
 };
 
-export default SectionWrapper(Tech, "tech");
+export default SectionWrapper(Tech, "tech", "show");
 // export default Tech;

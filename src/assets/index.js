@@ -42,6 +42,8 @@ import mui from "./tech/mui.png";
 import framermotion from "./tech/framermotion.png";
 import wordpress from "./tech/wordpress.png";
 import divi from "./tech/divi.png";
+import webflow from "./tech/webflow.png";
+import gitlab from "./tech/gitlab.svg";
 
 import meta from "./company/meta.png";
 import eps from "./company/eps.png";
@@ -53,6 +55,7 @@ import profilepicture from "./profilepicture.jpg";
 import PLACEHOLDER from "./projects/PLACEHOLDER.png";
 import portfolio from "./projects/portfolio.jpeg";
 import mems from "./projects/mems.png";
+import adverseevent from "./projects/adverseevent.png";
 
 export {
   logo,
@@ -103,4 +106,7 @@ export {
   PLACEHOLDER,
   portfolio,
   mems,
+  adverseevent,
+  webflow,
+  gitlab,
 };

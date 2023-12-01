@@ -1,4 +1,4 @@
-import { PLACEHOLDER, portfolio, mems } from "../assets";
+import { PLACEHOLDER, portfolio, mems, adverseevent } from "../assets";
 
 const projects = [
   {
@@ -45,7 +45,7 @@ const projects = [
         color: "green-text-gradient",
       },
     ],
-    image: PLACEHOLDER, // TODO: change
+    image: adverseevent,
     product_page_url: "https://sma-webpage.ch/produkte/adverse-event/",
   },
   {
