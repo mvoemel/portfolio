@@ -51,9 +51,9 @@ const Testimonials = () => {
       >
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>
-            <span className="text-[#915EFF]">What others say</span>
+            <span className="text-[#915EFF]">Testimonials</span>
           </p>
-          <h2 className={styles.sectionHeadText}>Testimonials.</h2>
+          <h2 className={styles.sectionHeadText}>What others say</h2>
         </motion.div>
       </div>
       <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
@@ -70,4 +70,3 @@ const Testimonials = () => {
 };
 
 export default SectionWrapper(Testimonials, "");
-// export default Testimonials;

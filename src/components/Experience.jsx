@@ -2,9 +2,8 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import { motion } from "framer-motion";
-
 import "react-vertical-timeline-component/style.min.css";
+import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { experiences } from "../data";
@@ -67,7 +66,7 @@ const Experience = () => {
           <span className="text-[#915EFF]">Experience</span>
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Some Examples of my Work
+          Companies I&apos;ve worked with
         </h2>
       </motion.div>
 

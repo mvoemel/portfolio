@@ -1,6 +1,4 @@
-import { mobile, backend, creator, web } from "../assets";
-
-// TODO: change icons and titles
+import { frontend, backend, desktop, web } from "../assets";
 
 const services = [
   {
@@ -9,7 +7,7 @@ const services = [
   },
   {
     title: "Frontend Developer",
-    icon: mobile,
+    icon: frontend,
   },
   {
     title: "Backend Developer",
@@ -17,7 +15,7 @@ const services = [
   },
   {
     title: "Desktop Developer",
-    icon: creator,
+    icon: desktop,
   },
 ];
 

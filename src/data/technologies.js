@@ -120,7 +120,7 @@ const technologies = [
     lightbackground: false,
   },
   // {
-  //   category: categories[1],
+  //   category: "Frameworks",
   //   name: "Next JS",
   //   icon: nextjs,
   //   lightbackground: true,
@@ -205,24 +205,24 @@ const technologies = [
   },
   {
     category: "DevOps",
-    name: "GitHub",
-    icon: github,
-    lightbackground: false,
-  },
-  {
-    category: "DevOps",
     name: "GitLab",
     icon: gitlab,
     lightbackground: false,
   },
+  {
+    category: "DevOps",
+    name: "GitHub",
+    icon: github,
+    lightbackground: false,
+  },
   // {
-  //   category: categories[1],
+  //   category: "DevOps",
   //   name: "Docker",
   //   icon: docker,
   //   lightbackground: false,
   // },
   // {
-  // category: categories[1],
+  // category: "DevOps",
   //   name: "Proxmox",
   //   icon: proxmox,
   //   lightbackground: false,

@@ -1,14 +1,14 @@
 import { Suspense, useRef, useEffect } from "react";
-import CanvasLoader from "../Loader";
-import * as THREE from "three";
+import { MeshPhongMaterial, Color } from "three";
 import Globe from "react-globe.gl";
+import CanvasLoader from "../Loader";
 
 // globe-data.json from https://geojson-maps.ash.ms/
 import countries from "./globe/globe-data.json";
 import lines from "./globe/lines.json";
 import map from "./globe/map.json";
 
-// BUG: disable Orbital controlls in mobile mode
+// TODO: disable Orbital controlls in mobile mode
 
 const GlobeObject = () => {
   const globeEl = useRef();
@@ -26,9 +26,9 @@ const GlobeObject = () => {
   }, []);
 
   // Globe Material
-  const globeMaterial = new THREE.MeshPhongMaterial();
-  globeMaterial.color = new THREE.Color(0x3a228a);
-  globeMaterial.emissive = new THREE.Color(0x220038);
+  const globeMaterial = new MeshPhongMaterial();
+  globeMaterial.color = new Color(0x3a228a);
+  globeMaterial.emissive = new Color(0x220038);
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 0.7;
 

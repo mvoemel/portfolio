@@ -1,4 +1,4 @@
-import { PLACEHOLDER, portfolio, mems, adverseevent } from "../assets";
+import { portfolio, mems, adverseevent } from "../assets";
 
 const projects = [
   {
@@ -20,7 +20,7 @@ const projects = [
       },
     ],
     image: portfolio,
-    source_code_link: "https://github.com/mvoemel/portfolio",
+    source_code_url: "https://github.com/mvoemel/portfolio",
     demo_url: "https://mvoemel.onrender.com/",
   },
   {
@@ -51,7 +51,7 @@ const projects = [
   {
     name: "MEMS",
     description:
-      "The Measurement Equipment Managing System is a desktop application that allows you to manage Measurement and Testing equipment. This application showcases my desktop application programming skills.",
+      "This project is a desktop application that allows you to manage Measurement and Testing equipment. This application showcases my desktop application programming skills.",
     tags: [
       {
         name: "python",
@@ -68,33 +68,6 @@ const projects = [
     ],
     image: mems,
     product_page_url: "https://sma-webpage.ch/produkte/mems/",
-  },
-  {
-    name: "PLACEHOLDER",
-    description:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-    tags: [
-      {
-        name: "PLACEHOLDER",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "PLACEHOLDER",
-        color: "green-text-gradient",
-      },
-      {
-        name: "PLACEHOLDER",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "PLACEHOLDER",
-        color: "orange-text-gradient",
-      },
-    ],
-    image: PLACEHOLDER,
-    source_code_link: "https://github.com/",
-    demo_url: "https://github.com/",
-    product_page_url: "https://github.com/",
   },
 ];
 

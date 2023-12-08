@@ -2,7 +2,7 @@ import { useRef, useCallback, useMemo, Suspense } from "react";
 import { Canvas /*, useFrame*/ } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 
-// TODO: fix bug using "ref": in useFrame ref.current.array throws exception
+// BUG: fix bug using "ref": in useFrame ref.current.array throws exception
 /*
 https://codesandbox.io/s/point-forked-x3fc01
 https://codesandbox.io/s/points-ldpyw8?file=/src/index.js
@@ -100,7 +100,6 @@ const RipplePoints = (props) => {
 
 const RippleCanvas = () => {
   return (
-    // z index is -1 so that it is shown behind the other elements
     <div className="w-full h-auto absolute inset-0 z-[-1]">
       <Canvas camera={{ position: [100, 10, 0], fov: 75 }}>
         <Suspense fallback={null}>

@@ -14,7 +14,7 @@ const ProjectCard = ({
   description,
   tags,
   image,
-  source_code_link,
+  source_code_url,
   demo_url,
   product_page_url,
 }) => {
@@ -63,9 +63,9 @@ const ProjectCard = ({
               </div>
             )}
             {/* SOURCE CODE LINK */}
-            {source_code_link && (
+            {source_code_url && (
               <div
-                onClick={() => window.open(source_code_link, "_blank")}
+                onClick={() => window.open(source_code_url, "_blank")}
                 className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
               >
                 <img

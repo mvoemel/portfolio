@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 
+import PulsatingCircles from "./PulsatingCircles";
+
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
 
 import { profilepicture, github, linkedin } from "../assets";
 import { linkedInUrl, githubUrl } from "../data/constants";
-
-import PulsatingCircles from "./PulsatingCircles";
 
 const Footer = () => {
   return (

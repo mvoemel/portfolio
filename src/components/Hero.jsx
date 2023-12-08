@@ -1,11 +1,9 @@
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { MacBookCanvas } from "./canvas";
-
 import { navLinks } from "../data";
-
-import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const Hero = () => {
   const [text] = useTypewriter({
@@ -48,7 +46,7 @@ const Hero = () => {
 
       <MacBookCanvas />
 
-      {/* ANIMATED SCROLL DOWN BUTTON */}
+      {/* SCROLL DOWN AND NAVLINK BUTTONS */}
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about" className="sm:hidden block">
           {/* ANIMATED SCROLL DOWN BUTTON */}
@@ -67,8 +65,8 @@ const Hero = () => {
           </div>
         </a>
 
-        {/* TODO: change this to be static */}
-        {/* ANIMATED NAVLINK BUTTONs */}
+        {/* TODO: remove animation and make buttons static */}
+        {/* ANIMATED NAVLINK BUTTONS */}
         <div className="sm:flex hidden">
           {navLinks.map((nav) => (
             <a href={`#${nav.id}`} key={nav.id} className="text-[#aaa6c3]">

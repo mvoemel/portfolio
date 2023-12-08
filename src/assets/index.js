@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 
 import backend from "./symbols/backend.png";
-import creator from "./symbols/creator.png";
-import mobile from "./symbols/mobile.png";
+import desktop from "./symbols/desktop.png";
+import frontend from "./symbols/frontend.png";
 import web from "./symbols/web.png";
 
 import github from "./github.png";
@@ -46,14 +46,12 @@ import webflow from "./tech/webflow.png";
 import gitlab from "./tech/gitlab.svg";
 import c from "./tech/c.png";
 
-import meta from "./company/meta.png";
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
 import sai from "./company/sai.png";
 
 import profilepicture from "./profilepicture.jpg";
 
-import PLACEHOLDER from "./projects/PLACEHOLDER.png";
 import portfolio from "./projects/portfolio.jpeg";
 import mems from "./projects/mems.png";
 import adverseevent from "./projects/adverseevent.png";
@@ -61,8 +59,8 @@ import adverseevent from "./projects/adverseevent.png";
 export {
   logo,
   backend,
-  creator,
-  mobile,
+  frontend,
+  desktop,
   web,
   github,
   linkedin,
@@ -84,7 +82,6 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
   eps,
   microshield,
   sai,
@@ -104,7 +101,6 @@ export {
   divi,
   productpage,
   livedemo,
-  PLACEHOLDER,
   portfolio,
   mems,
   adverseevent,
