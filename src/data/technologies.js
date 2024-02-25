@@ -7,7 +7,7 @@ import {
   redux,
   tailwind,
   nodejs,
-  // nextjs,
+  nextjs,
   expressjs,
   postgresql,
   mongodb,
@@ -32,6 +32,8 @@ import {
   gitlab,
   github,
   c,
+  shadcnui,
+  bun,
 } from "../assets";
 
 const technologies = [
@@ -109,6 +111,12 @@ const technologies = [
   },
   {
     category: "Frameworks",
+    name: "Shadcn UI",
+    icon: shadcnui,
+    lightbackground: false,
+  },
+  {
+    category: "Frameworks",
     name: "Framer Motion",
     icon: framermotion,
     lightbackground: false,
@@ -119,12 +127,18 @@ const technologies = [
     icon: nodejs,
     lightbackground: false,
   },
-  // {
-  //   category: "Frameworks",
-  //   name: "Next JS",
-  //   icon: nextjs,
-  //   lightbackground: true,
-  // },
+  {
+    category: "Environments",
+    name: "Bun",
+    icon: bun,
+    lightbackground: false,
+  },
+  {
+    category: "Frameworks",
+    name: "Next JS",
+    icon: nextjs,
+    lightbackground: true,
+  },
   {
     category: "Frameworks",
     name: "Express JS",

@@ -45,6 +45,8 @@ import divi from "./tech/divi.png";
 import webflow from "./tech/webflow.png";
 import gitlab from "./tech/gitlab.svg";
 import c from "./tech/c.png";
+import shadcnui from "./tech/shadcnui.png";
+import bun from "./tech/bun.svg";
 
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
@@ -107,4 +109,6 @@ export {
   webflow,
   gitlab,
   c,
+  shadcnui,
+  bun,
 };
