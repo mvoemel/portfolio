@@ -174,7 +174,7 @@ const technologies = [
     category: "DataBases",
     name: "Prisma ORM",
     icon: prisma,
-    lightbackground: false,
+    lightbackground: true,
   },
   {
     category: "Frameworks",
