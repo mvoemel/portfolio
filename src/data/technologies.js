@@ -35,6 +35,7 @@ import {
   shadcnui,
   bun,
   prisma,
+  // antdesign,
 } from "../assets";
 
 const technologies = [
@@ -104,6 +105,12 @@ const technologies = [
     icon: tailwind,
     lightbackground: false,
   },
+  // {
+  //   category: "Frameworks",
+  //   name: "Ant Design",
+  //   icon: antdesign,
+  //   lightbackground: false,
+  // },
   {
     category: "Frameworks",
     name: "Material UI",
