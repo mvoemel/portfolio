@@ -47,6 +47,7 @@ import gitlab from "./tech/gitlab.svg";
 import c from "./tech/c.png";
 import shadcnui from "./tech/shadcnui.png";
 import bun from "./tech/bun.svg";
+import prisma from "./tech/prisma.svg";
 
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
@@ -111,4 +112,5 @@ export {
   c,
   shadcnui,
   bun,
+  prisma,
 };

@@ -34,6 +34,7 @@ import {
   c,
   shadcnui,
   bun,
+  prisma,
 } from "../assets";
 
 const technologies = [
@@ -167,6 +168,12 @@ const technologies = [
     category: "DataBases",
     name: "PostgreSQL",
     icon: postgresql,
+    lightbackground: false,
+  },
+  {
+    category: "DataBases",
+    name: "Prisma ORM",
+    icon: prisma,
     lightbackground: false,
   },
   {
