@@ -49,6 +49,7 @@ import shadcnui from "./tech/shadcnui.png";
 import bun from "./tech/bun.svg";
 import prisma from "./tech/prisma.svg";
 import antdesign from "./tech/antdesign.png";
+import nextauth from "./tech/nextauth.png";
 
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
@@ -115,4 +116,5 @@ export {
   bun,
   prisma,
   antdesign,
+  nextauth,
 };

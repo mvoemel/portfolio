@@ -36,6 +36,7 @@ import {
   bun,
   prisma,
   // antdesign,
+  nextauth,
 } from "../assets";
 
 const technologies = [
@@ -97,6 +98,12 @@ const technologies = [
     category: "Frameworks",
     name: "Redux Toolkit",
     icon: redux,
+    lightbackground: false,
+  },
+  {
+    category: "Frameworks",
+    name: "NextAuth",
+    icon: nextauth,
     lightbackground: false,
   },
   {
