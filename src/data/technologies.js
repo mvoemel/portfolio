@@ -37,6 +37,7 @@ import {
   prisma,
   // antdesign,
   nextauth,
+  javafx,
 } from "../assets";
 
 const technologies = [
@@ -50,6 +51,12 @@ const technologies = [
     category: "Languages",
     name: "Java",
     icon: java,
+    lightbackground: false,
+  },
+  {
+    category: "Frameworks",
+    name: "JavaFX",
+    icon: javafx,
     lightbackground: false,
   },
   {

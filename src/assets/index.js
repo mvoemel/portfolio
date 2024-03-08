@@ -50,6 +50,7 @@ import bun from "./tech/bun.svg";
 import prisma from "./tech/prisma.svg";
 import antdesign from "./tech/antdesign.png";
 import nextauth from "./tech/nextauth.png";
+import javafx from "./tech/javafx.png";
 
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
@@ -117,4 +118,5 @@ export {
   prisma,
   antdesign,
   nextauth,
+  javafx,
 };
