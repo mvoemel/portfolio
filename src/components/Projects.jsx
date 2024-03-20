@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -19,81 +18,77 @@ const ProjectCard = ({
   product_page_url,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
-      >
-        <div className="relative w-full h-[230px]">
-          <img
-            src={image}
-            alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
-          />
+    <motion.div
+      className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.25 },
+      }}
+      whileTap={{ scale: 0.95 }}
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+    >
+      <div className="relative w-full h-[230px]">
+        <img
+          src={image}
+          alt="project_image"
+          className="w-full h-full object-cover rounded-2xl"
+        />
 
-          <div className="absolute inset-0 flex justify-end gap-1 m-3 card-img_hover">
-            {/* PRODUCT PAGE URL */}
-            {product_page_url && (
-              <div
-                onClick={() => window.open(product_page_url, "_blank")}
-                className="blue-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-              >
-                <img
-                  src={productpage}
-                  alt="product page"
-                  className="w-1/2 h-1/2 object-contain"
-                />
-              </div>
-            )}
-            {/* DEMO URL */}
-            {demo_url && (
-              <div
-                onClick={() => window.open(demo_url, "_blank")}
-                className="violet-pink-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-              >
-                <img
-                  src={livedemo}
-                  alt="demo"
-                  className="w-1/2 h-1/2 object-contain"
-                />
-              </div>
-            )}
-            {/* SOURCE CODE LINK */}
-            {source_code_url && (
-              <div
-                onClick={() => window.open(source_code_url, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-              >
-                <img
-                  src={github}
-                  alt="source code"
-                  className="w-1/2 h-1/2 object-contain"
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+        <div className="absolute inset-0 flex justify-end gap-1 m-3 card-img_hover">
+          {/* PRODUCT PAGE URL */}
+          {product_page_url && (
+            <div
+              onClick={() => window.open(product_page_url, "_blank")}
+              className="blue-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
-              #{tag.name}
-            </p>
-          ))}
+              <img
+                src={productpage}
+                alt="product page"
+                className="w-1/2 h-1/2 object-contain"
+              />
+            </div>
+          )}
+          {/* DEMO URL */}
+          {demo_url && (
+            <div
+              onClick={() => window.open(demo_url, "_blank")}
+              className="violet-pink-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+            >
+              <img
+                src={livedemo}
+                alt="demo"
+                className="w-1/2 h-1/2 object-contain"
+              />
+            </div>
+          )}
+          {/* SOURCE CODE LINK */}
+          {source_code_url && (
+            <div
+              onClick={() => window.open(source_code_url, "_blank")}
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+            >
+              <img
+                src={github}
+                alt="source code"
+                className="w-1/2 h-1/2 object-contain"
+              />
+            </div>
+          )}
         </div>
-      </Tilt>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-white font-bold text-[24px]">{name}</h3>
+        <p className="mt-2 text-secondary text-[14px]">{description}</p>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+            #{tag.name}
+          </p>
+        ))}
+      </div>
     </motion.div>
   );
 };
