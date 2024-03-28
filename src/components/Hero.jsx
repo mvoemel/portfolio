@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { MacBookCanvas } from "./canvas";
-import { navLinks } from "../data";
 
 const Hero = () => {
   const [text] = useTypewriter({
@@ -64,31 +63,6 @@ const Hero = () => {
             />
           </div>
         </a>
-
-        {/* TODO: remove animation and make buttons static */}
-        {/* ANIMATED NAVLINK BUTTONS */}
-        <div className="sm:flex hidden">
-          {navLinks.map((nav) => (
-            <a href={`#${nav.id}`} key={nav.id} className="text-[#aaa6c3]">
-              <div className="py-1 px-3 mx-2 h-[35px] rounded-3xl border-2 border-secondary flex justify-center items-start">
-                <motion.div
-                  animate={{
-                    x: [-4, 4, -4],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                  }}
-                >
-                  <h1 className="flex justify-center items-center">
-                    {nav.title}
-                  </h1>
-                </motion.div>
-              </div>
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   );

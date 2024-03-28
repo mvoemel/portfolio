@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
+import { BackgroundBeams } from "./BackgroundBeams";
 
 const NotFound = () => {
   return (
-    <div className={`bg-hero-pattern relative w-full h-screen mx-auto`}>
+    <div className="bg-primary relative w-full h-screen mx-auto">
+      <BackgroundBeams />
       {/* CONTAINER */}
       <div
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}

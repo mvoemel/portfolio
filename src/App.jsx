@@ -11,12 +11,12 @@ import {
   Tech,
   Projects,
 } from "./components";
-import { StarsCanvas /*, RippleCanvas*/ } from "./components/canvas";
+import { StarsCanvas } from "./components/canvas";
 import ModalProvider from "./providers/ModalProvider";
+import { BackgroundBeams } from "./components/BackgroundBeams";
 
 // TODO: restructure Folder structure to be more modular
 
-// TODO: implement RippleCanvas
 // TODO: implement Testimonials
 
 // BUG: on mobile IOS Technologies Section does not get displayed (tested with Safari and Brave)
@@ -31,10 +31,10 @@ const App = () => {
             path="/"
             element={
               <div className="relative z-0 bg-primary">
-                <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+                <div className="h-full w-full">
+                  <BackgroundBeams />
                   <Navbar />
                   <Hero />
-                  {/* <RippleCanvas /> */}
                 </div>
                 <About />
                 <Experience />
