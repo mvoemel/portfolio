@@ -12,6 +12,9 @@ import {
   Projects,
 } from "./components";
 import { StarsCanvas /*, RippleCanvas*/ } from "./components/canvas";
+import ModalProvider from "./providers/ModalProvider";
+
+// TODO: restructure Folder structure to be more modular
 
 // TODO: implement RippleCanvas
 // TODO: implement Testimonials
@@ -22,31 +25,33 @@ import { StarsCanvas /*, RippleCanvas*/ } from "./components/canvas";
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="relative z-0 bg-primary">
-              <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-                <Navbar />
-                <Hero />
-                {/* <RippleCanvas /> */}
+      <ModalProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="relative z-0 bg-primary">
+                <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+                  <Navbar />
+                  <Hero />
+                  {/* <RippleCanvas /> */}
+                </div>
+                <About />
+                <Experience />
+                <Tech />
+                <Projects />
+                {/* <Testimonials /> */}
+                <div className="relative z-0">
+                  <Contact />
+                  <StarsCanvas />
+                </div>
+                <Footer />
               </div>
-              <About />
-              <Experience />
-              <Tech />
-              <Projects />
-              {/* <Testimonials /> */}
-              <div className="relative z-0">
-                <Contact />
-                <StarsCanvas />
-              </div>
-              <Footer />
-            </div>
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ModalProvider>
     </BrowserRouter>
   );
 };
