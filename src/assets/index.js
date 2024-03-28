@@ -58,7 +58,7 @@ import sai from "./company/sai.png";
 
 import profilepicture from "./profilepicture.jpg";
 
-import portfolio from "./projects/portfolio.jpeg";
+import portfolio from "./projects/portfolio.png";
 import mems from "./projects/mems.png";
 import adverseevent from "./projects/adverseevent.png";
 
