@@ -12,7 +12,7 @@ const CustomModal = ({ children, title }) => {
   const modalAnimation = {
     hidden: { y: "-100vh", opacity: 0 },
     visible: {
-      y: "200px",
+      y: "100px",
       opacity: 1,
       transition: { delay: 0 },
     },
@@ -31,7 +31,7 @@ const CustomModal = ({ children, title }) => {
         onClick={() => setClose()}
       >
         <motion.div
-          className="lg:max-w-[600px] sm:max-w-[360px] m-auto p-5 bg-tertiary rounded-2xl"
+          className="lg:max-w-[700px] sm:max-w-[360px] md:max-h-[800px] md:h-fit h-screen m-auto p-5 bg-tertiary rounded-2xl overflow-scroll"
           variants={modalAnimation}
         >
           <div className="mb-2 flex flex-row justify-between">

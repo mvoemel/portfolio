@@ -13,6 +13,8 @@ import CustomModal from "../providers/CustomModal";
 // TODO: rework tags design
 const ProjectModalCard = ({
   description,
+  features,
+  demo_user,
   tags,
   image,
   source_code_url,
@@ -77,15 +79,63 @@ const ProjectModalCard = ({
       </div>
 
       <div className="mt-5">
-        <h3 className="text-white font-bold text-[24px]">{name}</h3>
+        {/* DESCRIPTION */}
         <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        {/* FEATURES */}
+        <ul className="mt-4 list-disc ml-5 space-y-2">
+          {features &&
+            features.map((point, index) => (
+              <li
+                key={`feature-point-${index}`}
+                className="text-white-100 text-[14px] pl-1 tracking-wider"
+              >
+                {point}
+              </li>
+            ))}
+        </ul>
+        {/* DEMO USER */}
+        {demo_user && (
+          <>
+            <p className="mt-4 text-secondary text-[14px]">Demo User:</p>
+            <li
+              key="demo-user-link"
+              className="text-secondary text-[14px] pl-1"
+            >
+              <b>Link: </b>
+              <a
+                href={demo_user.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {demo_user.link}
+              </a>
+            </li>
+            <li
+              key="demo-user-link"
+              className="text-secondary text-[14px] pl-1"
+            >
+              <b>User: </b>
+              {demo_user.user}
+            </li>
+            <li
+              key="demo-user-link"
+              className="text-secondary text-[14px] pl-1"
+            >
+              <b>Password: </b>
+              {demo_user.password}
+            </li>
+          </>
+        )}
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
-            #{tag.name}
-          </p>
+          <div
+            key={`${name}-${tag.name}`}
+            className={`${tag.background} border border-primary rounded-[50px] px-2 py-1`}
+          >
+            <p className={`text-[14px] text-primary`}>{tag.name}</p>
+          </div>
         ))}
       </div>
     </div>
@@ -95,7 +145,10 @@ const ProjectModalCard = ({
 const ProjectCard = ({
   index,
   name,
+  abstract,
   description,
+  features,
+  demo_user,
   tags,
   image,
   source_code_url,
@@ -118,6 +171,8 @@ const ProjectCard = ({
           <CustomModal title={name}>
             <ProjectModalCard
               description={description}
+              features={features}
+              demo_user={demo_user}
               tags={tags}
               image={image}
               source_code_url={source_code_url}
@@ -180,7 +235,7 @@ const ProjectCard = ({
 
       <div className="mt-5">
         <h3 className="text-white font-bold text-[24px]">{name}</h3>
-        <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        <p className="mt-2 text-secondary text-[14px]">{abstract}</p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
