@@ -9,8 +9,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { useModal } from "../hooks/useModal";
 import CustomModal from "../providers/CustomModal";
 
-// TODO: add detailed description and bulletpoints
-// TODO: rework tags design
+// TODO: improve tags design
 const ProjectModalCard = ({
   description,
   features,
