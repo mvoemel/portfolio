@@ -269,8 +269,8 @@ const Projects = () => {
           <span className="text-[#915EFF]">live demonstation</span> page and
           some have a <span className="text-[#915EFF]">product page</span>. It
           reflects my ability to solve complex problems, work with different
-          technologies, and manage projects effectively. Click on a project to
-          see more!
+          technologies, and manage projects effectively.
+          <br /> Click on a project to see more!
         </motion.p>
       </div>
 

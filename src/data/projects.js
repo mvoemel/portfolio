@@ -77,7 +77,7 @@ const projects = [
     features: [
       "Cross Platform Compatibility",
       "Automatic Notification and Sorting of upcoming Maintenance Tasks",
-      "Local Databse using SqLite3",
+      "Local Database using SqLite3",
       "Import / Export Functionality",
     ],
     tags: [
