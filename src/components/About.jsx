@@ -37,6 +37,18 @@ const ServiceCard = ({ index, title, icon }) => (
 );
 
 const About = () => {
+  const EXPERIENCE_SINCE_YEAR = 2021;
+
+  const numberOfYearsExperience = () => {
+    const currentDate = new Date();
+    const differenceInYears = currentDate.getFullYear() - EXPERIENCE_SINCE_YEAR;
+
+    // getMonth() returns the current month (0-11)
+    return currentDate.getMonth() >= 6
+      ? differenceInYears + 0.5
+      : differenceInYears;
+  };
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -50,7 +62,8 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        I&apos;m a software engineer with combined 1.5 years of experience in{" "}
+        I&apos;m a software engineer with combined {numberOfYearsExperience()}{" "}
+        years of experience in{" "}
         <span className="text-[#915EFF]">TypeScript</span> and{" "}
         <span className="text-[#915EFF]">JavaScript</span>,{" "}
         <span className="text-[#915EFF]">Java</span>,{" "}
@@ -58,7 +71,7 @@ const About = () => {
         frameworks and environments like{" "}
         <span className="text-[#915EFF]">React</span>,{" "}
         <span className="text-[#915EFF]">Node.js</span>, and{" "}
-        <span className="text-[#915EFF]">Express</span>.
+        <span className="text-[#915EFF]">Next.js</span>.
         <br />I get excited about opportunities where I can innovate,
         collaborate with a talented team, and continuously learn and grow while
         solving complex technical challenges.
