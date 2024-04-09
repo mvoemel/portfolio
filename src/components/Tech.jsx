@@ -60,7 +60,7 @@ const Tech = () => {
           ))}
 
         <h3 className={`${styles.sectionSubText} text-center w-full`}>
-          Frameworks
+          Frameworks / Packages
         </h3>
         {technologies
           .filter((tech) => tech.category === "Frameworks")
@@ -91,6 +91,13 @@ const Tech = () => {
         </h3>
         {technologies
           .filter((tech) => tech.category === "DevOps")
+          .map((tech, index) => (
+            <TechCard key={tech.title} index={index} {...tech} />
+          ))}
+
+        <h3 className={`${styles.sectionSubText} text-center w-full`}>OS</h3>
+        {technologies
+          .filter((tech) => tech.category === "OS")
           .map((tech, index) => (
             <TechCard key={tech.title} index={index} {...tech} />
           ))}

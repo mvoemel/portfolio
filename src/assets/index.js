@@ -51,6 +51,13 @@ import prisma from "./tech/prisma.svg";
 import antdesign from "./tech/antdesign.png";
 import nextauth from "./tech/nextauth.png";
 import javafx from "./tech/javafx.png";
+import apache from "./tech/apache.png";
+import nginx from "./tech/nginx.png";
+import debian from "./tech/debian.svg";
+import ubuntu from "./tech/ubuntu.png";
+import linux from "./tech/linux.png";
+import macos from "./tech/macos.png";
+import windows from "./tech/windows.png";
 
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
@@ -119,4 +126,11 @@ export {
   antdesign,
   nextauth,
   javafx,
+  apache,
+  nginx,
+  debian,
+  ubuntu,
+  linux,
+  macos,
+  windows,
 };

@@ -38,6 +38,13 @@ import {
   // antdesign,
   nextauth,
   javafx,
+  // apache,
+  // nginx,
+  // debian,
+  ubuntu,
+  // linux,
+  macos,
+  windows,
 } from "../assets";
 
 const technologies = [
@@ -269,6 +276,48 @@ const technologies = [
   //   icon: proxmox,
   //   lightbackground: false,
   // },
+  // {
+  //   category: "DevOps",
+  //   name: "Apache2",
+  //   icon: apache,
+  //   lightbackground: false,
+  // },
+  // {
+  //   category: "DevOps",
+  //   name: "Nginx",
+  //   icon: nginx,
+  //   lightbackground: false,
+  // },
+  // {
+  //   category: "OS",
+  //   name: "Debian",
+  //   icon: debian,
+  //   lightbackground: false,
+  // },
+  {
+    category: "OS",
+    name: "Ubuntu",
+    icon: ubuntu,
+    lightbackground: false,
+  },
+  // {
+  //   category: "OS",
+  //   name: "Linux",
+  //   icon: linux,
+  //   lightbackground: true,
+  // },
+  {
+    category: "OS",
+    name: "macOS",
+    icon: macos,
+    lightbackground: true,
+  },
+  {
+    category: "OS",
+    name: "Windows",
+    icon: windows,
+    lightbackground: false,
+  },
 ];
 
 export default technologies;
