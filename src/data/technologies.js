@@ -45,6 +45,7 @@ import {
   // linux,
   macos,
   windows,
+  jenkins,
 } from "../assets";
 
 const technologies = [
@@ -264,6 +265,12 @@ const technologies = [
     icon: github,
     lightbackground: false,
   },
+  // {
+  //   category: "DevOps",
+  //   name: "Jenkins",
+  //   icon: jenkins,
+  //   lightbackground: false,
+  // },
   // {
   //   category: "DevOps",
   //   name: "Docker",

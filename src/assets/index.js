@@ -58,6 +58,7 @@ import ubuntu from "./tech/ubuntu.png";
 import linux from "./tech/linux.png";
 import macos from "./tech/macos.png";
 import windows from "./tech/windows.png";
+import jenkins from "./tech/jenkins.png";
 
 import eps from "./company/eps.png";
 import microshield from "./company/microshield.png";
@@ -133,4 +134,5 @@ export {
   linux,
   macos,
   windows,
+  jenkins,
 };
