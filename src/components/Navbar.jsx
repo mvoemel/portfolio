@@ -27,9 +27,10 @@ const Navbar = () => {
 
   return (
     <nav
+      // top-5 because of OutdatedBanner, else it would be top-0
       className={`${
         styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
+      } w-full flex items-center py-5 fixed top-5 z-20 ${
         scrolled ? "bg-primary" : "bg-transparent"
       }`}
     >

@@ -86,6 +86,16 @@ const Contact = () => {
         </p>
         <h3 className={styles.sectionHeadText}>Get in touch</h3>
 
+        {/* Information for outdated portfolio site. */}
+        <p className="text-red-600">
+          Keep in mind that I may not answer to Emails from the following form.
+          If you want to send me an Email visit my{" "}
+          <a className="text-red-400" href="https://michael.voemel.org/">
+            new portfolio website
+          </a>
+          , where my contact info is up to date.
+        </p>
+
         <form
           ref={formRef}
           onSubmit={handleSubmit}

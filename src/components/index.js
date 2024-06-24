@@ -8,6 +8,7 @@ import NotFound from "./NotFound";
 import Tech from "./Tech";
 import Projects from "./Projects";
 import Footer from "./Footer";
+import OutdatedBanner from "./OutdatedBanner";
 
 export {
   About,
@@ -20,4 +21,5 @@ export {
   NotFound,
   Tech,
   Projects,
+  OutdatedBanner,
 };

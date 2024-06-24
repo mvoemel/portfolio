@@ -10,6 +10,7 @@ import {
   NotFound,
   Tech,
   Projects,
+  OutdatedBanner,
 } from "./components";
 import { StarsCanvas } from "./components/canvas";
 import ModalProvider from "./providers/ModalProvider";
@@ -30,23 +31,26 @@ const App = () => {
           <Route
             path="/"
             element={
-              <div className="relative z-0 bg-primary">
-                <div className="h-full w-full">
-                  <BackgroundBeams />
-                  <Navbar />
-                  <Hero />
+              <>
+                <OutdatedBanner />
+                <div className="relative z-0 bg-primary">
+                  <div className="h-full w-full">
+                    <BackgroundBeams />
+                    <Navbar />
+                    <Hero />
+                  </div>
+                  <About />
+                  <Experience />
+                  <Tech />
+                  <Projects />
+                  {/* <Testimonials /> */}
+                  <div className="relative z-0">
+                    <Contact />
+                    <StarsCanvas />
+                  </div>
+                  <Footer />
                 </div>
-                <About />
-                <Experience />
-                <Tech />
-                <Projects />
-                {/* <Testimonials /> */}
-                <div className="relative z-0">
-                  <Contact />
-                  <StarsCanvas />
-                </div>
-                <Footer />
-              </div>
+              </>
             }
           />
           <Route path="*" element={<NotFound />} />
