@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
 // Also install this npm i --save-dev @types/react-lottie
@@ -11,6 +11,9 @@ import { BackgroundGradientAnimation } from "@/components/ui/GradientBackground"
 import GridGlobe from "@/components/ui/GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "@/components/ui/MagicButton";
+import { LinkPreview } from "./LinkPreview";
+import { AnimatedTooltip } from "./AnimatedTooltip";
+import { email } from "@/data";
 
 type BentoGridProps = {
   className?: string;
@@ -36,6 +39,16 @@ type BentoGridItemProps = {
   id: number;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
+  link?: string;
+  leftTechList?: string[];
+  rightTechList?: string[];
+  devopsTechstack?: {
+    id: number;
+    name: string;
+    description?: string | undefined;
+    image: string;
+  }[];
+  paragraph?: string | React.ReactNode;
   img?: string;
   imgClassName?: string;
   titleClassName?: string;
@@ -47,16 +60,27 @@ export const BentoGridItem = ({
   id,
   title,
   description,
-  //   remove unecessary things here
+  link,
+  leftTechList,
+  rightTechList,
+  devopsTechstack,
+  paragraph,
   img,
   imgClassName,
   titleClassName,
   spareImg,
 }: BentoGridItemProps) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
-
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+
+    const timer = setTimeout(() => {
+      setCopied(false);
+    }, 2 * 60 * 1000); // 2 minutes
+
+    return () => clearTimeout(timer);
+  }, [copied]);
 
   const defaultOptions = {
     loop: copied,
@@ -68,8 +92,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "michael@voemel.org";
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(email);
     setCopied(true);
   };
 
@@ -91,7 +114,9 @@ export const BentoGridItem = ({
       }}
     >
       {/* add img divs */}
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+      <div
+        className={`${(id === 5 || id === 10) && "flex justify-center"} h-full`}
+      >
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -103,7 +128,7 @@ export const BentoGridItem = ({
         </div>
         <div
           className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
+            id === 8 && "w-full opacity-80"
           } `}
         >
           {spareImg && (
@@ -115,7 +140,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        {id === 6 && (
+        {id === 10 && (
           // add background animation , remove the p tag
           <BackgroundGradientAnimation>
             {/* <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div> */}
@@ -144,10 +169,10 @@ export const BentoGridItem = ({
 
           {/* Tech stack list div */}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
+            <div className="flex gap-1 lg:gap-3 w-fit absolute -right-3 lg:-right-2">
               {/* tech stack lists */}
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                {leftLists.map((item, i) => (
+              <div className="flex flex-col gap-3 md:gap-3 lg:gap-3">
+                {leftTechList?.map((item, i) => (
                   <span
                     key={i}
                     className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
@@ -158,9 +183,9 @@ export const BentoGridItem = ({
                 ))}
                 <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
               </div>
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
+              <div className="flex flex-col gap-3 md:gap-3 lg:gap-3">
                 <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
-                {rightLists.map((item, i) => (
+                {rightTechList?.map((item, i) => (
                   <span
                     key={i}
                     className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
@@ -172,7 +197,32 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
+          {/* Github icon */}
+          {id === 5 && link && (
+            <div className="mt-5 w-1/3 !z-20">
+              <LinkPreview url={link}>
+                <img
+                  src="/technologies/devops/github.svg"
+                  alt="/technologies/devops/github.svg"
+                  className="object-cover object-center w-full h-full"
+                />
+              </LinkPreview>
+            </div>
+          )}
+          {/* Expertise text area */}
           {id === 6 && (
+            <div className="mt-5 font-thin flex flex-col items-start justify-start w-full">
+              <p>{paragraph}</p>
+            </div>
+          )}
+          {/* DevOps tech stack */}
+          {id === 7 && devopsTechstack && (
+            <div className="flex flex-row items-center justify-start my-5 w-full">
+              <AnimatedTooltip items={devopsTechstack} />
+            </div>
+          )}
+          {/* Magic copy button */}
+          {id === 10 && (
             <div className="mt-5 relative">
               {/* button border magic from tailwind css buttons  */}
               {/* add rounded-md h-8 md:h-8, remove rounded-full */}
@@ -188,7 +238,7 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
+                title={copied ? "Email copied!" : "Copy my Email"}
                 icon={<IoCopyOutline />}
                 position="left"
                 handleClick={handleCopy}

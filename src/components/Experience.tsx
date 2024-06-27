@@ -1,8 +1,9 @@
 import React from "react";
 
-import { workExperience } from "@/data";
+import { experience } from "@/data";
 import { Button } from "@/components/ui/MovingBorders";
 
+// TODO: (maybe) add Tracing Beam Effect
 const Experience = () => {
   return (
     <div className="py-20 w-full">
@@ -11,7 +12,7 @@ const Experience = () => {
       </h1>
 
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-        {workExperience.map((card) => (
+        {experience.map((card) => (
           <Button
             key={card.id}
             //   random duration will be fun , I think , may be not
