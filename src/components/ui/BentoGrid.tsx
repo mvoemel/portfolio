@@ -77,7 +77,7 @@ export const BentoGridItem = ({
 
     const timer = setTimeout(() => {
       setCopied(false);
-    }, 2 * 60 * 1000); // 2 minutes
+    }, 10 * 1000); // 10 seconds
 
     return () => clearTimeout(timer);
   }, [copied]);
