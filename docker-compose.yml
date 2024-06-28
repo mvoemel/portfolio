@@ -1,0 +1,16 @@
+name: "portfolio"
+
+services:
+  nextjs-app:
+    container_name: nextjs-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - external-network
+
+networks:
+  external-network:
