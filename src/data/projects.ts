@@ -56,6 +56,7 @@ export const projects = [
       "/technologies/languages/typescript.svg",
       "/technologies/frameworks/reactjs.svg",
       "/technologies/frameworks/nextjs.svg",
+      "/technologies/frameworks/bun.svg",
       "/technologies/packages/nextauth.png",
       "/technologies/frontend/shadcnui.png",
       "/technologies/frontend/tailwindcss.svg",

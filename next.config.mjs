@@ -1,15 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "api.microlink.io", // Microlink Image Preview (for LinkPreview.tsx)
+    remotePatterns: [
+      { protocol: "https", hostname: "api.microlink.io", port: "" }, // Microlink Image Preview (for LinkPreview.tsx)
     ],
   },
-  // TODO: Configure Next.js build options for only client-side rendering. Change in future when server-side rendering is implemented.
-  // output: "export",
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  output: "standalone",
 };
 
 export default nextConfig;
