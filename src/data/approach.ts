@@ -11,7 +11,7 @@ export const approachPhases = [
     id: 2,
     title: "Design & Development",
     description:
-      "Once we agree on the plan, I start creating the the system architecture and design components. I develop a prototype to validate concepts, followed by writing clean, efficient code. Rigorous unit, integration, and system testing ensuring high quality and functionality.",
+      "Once we agree on the plan, I start creating the system architecture and design components. I develop a prototype to validate concepts, followed by writing clean, efficient code. Rigorous unit, integration, and system testing ensuring high quality and functionality.",
     animationSpeed: 3.7,
     containerClassName: "bg-pink-900",
     colors: [
