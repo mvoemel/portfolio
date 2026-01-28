@@ -1,4 +1,18 @@
-const navLinks = [
+import type {
+  BlogPost,
+  DockApp,
+  GalleryItem,
+  Location,
+  LocationType,
+  NavIcon,
+  NavLink,
+  PhotoLink,
+  Social,
+  TechStackCategory,
+  WindowConfig,
+} from "./types";
+
+export const navLinks: NavLink[] = [
   {
     id: 1,
     name: "Projects",
@@ -16,7 +30,7 @@ const navLinks = [
   },
 ];
 
-const navIcons = [
+export const navIcons: NavIcon[] = [
   {
     id: 1,
     img: "/icons/wifi.svg",
@@ -35,46 +49,46 @@ const navIcons = [
   },
 ];
 
-const dockApps = [
+export const dockApps: DockApp[] = [
   {
     id: "finder",
-    name: "Portfolio", // was "Finder"
+    name: "Portfolio",
     icon: "finder.png",
     canOpen: true,
   },
   {
     id: "safari",
-    name: "Articles", // was "Safari"
+    name: "Articles",
     icon: "safari.png",
     canOpen: true,
   },
   {
     id: "photos",
-    name: "Gallery", // was "Photos"
+    name: "Gallery",
     icon: "photos.png",
     canOpen: true,
   },
   {
     id: "contact",
-    name: "Contact", // or "Get in touch"
+    name: "Contact",
     icon: "contact.png",
     canOpen: true,
   },
   {
     id: "terminal",
-    name: "Skills", // was "Terminal"
+    name: "Skills",
     icon: "terminal.png",
     canOpen: true,
   },
   {
     id: "trash",
-    name: "Archive", // was "Trash"
+    name: "Archive",
     icon: "trash.png",
     canOpen: false,
   },
 ];
 
-const blogPosts = [
+export const blogPosts: BlogPost[] = [
   {
     id: 1,
     date: "Sep 2, 2025",
@@ -99,7 +113,7 @@ const blogPosts = [
   },
 ];
 
-const techStack = [
+export const techStack: TechStackCategory[] = [
   {
     category: "Frontend",
     items: ["React.js", "Next.js", "TypeScript"],
@@ -126,7 +140,7 @@ const techStack = [
   },
 ];
 
-const socials = [
+export const socials: Social[] = [
   {
     id: 1,
     text: "Github",
@@ -157,7 +171,7 @@ const socials = [
   },
 ];
 
-const photosLinks = [
+export const photosLinks: PhotoLink[] = [
   {
     id: 1,
     icon: "/icons/gicon1.svg",
@@ -185,7 +199,7 @@ const photosLinks = [
   },
 ];
 
-const gallery = [
+export const gallery: GalleryItem[] = [
   {
     id: 1,
     img: "/images/gal1.png",
@@ -204,18 +218,7 @@ const gallery = [
   },
 ];
 
-export {
-  navLinks,
-  navIcons,
-  dockApps,
-  blogPosts,
-  techStack,
-  socials,
-  photosLinks,
-  gallery,
-};
-
-const WORK_LOCATION = {
+const WORK_LOCATION: Location = {
   id: 1,
   type: "work",
   name: "Work",
@@ -228,8 +231,8 @@ const WORK_LOCATION = {
       name: "Nike Ecommerce Website Application",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      position: "top-10 left-5",
+      windowPosition: "top-[5vh] left-5",
       children: [
         {
           id: 1,
@@ -348,7 +351,7 @@ const WORK_LOCATION = {
             "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
             "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
             "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
+            "It's built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
           ],
         },
         {
@@ -383,7 +386,7 @@ const WORK_LOCATION = {
   ],
 };
 
-const ABOUT_LOCATION = {
+const ABOUT_LOCATION: Location = {
   id: 2,
   type: "about",
   name: "About me",
@@ -427,16 +430,16 @@ const ABOUT_LOCATION = {
       subtitle: "Meet the Developer Behind the Code",
       image: "/images/adrian.jpg",
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
+        "Hey! I'm Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
         "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
+        "I'm big on clean UI, good UX, and writing code that doesn't need a search party to debug.",
         "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
       ],
     },
   ],
 };
 
-const RESUME_LOCATION = {
+const RESUME_LOCATION: Location = {
   id: 3,
   type: "resume",
   name: "Resume",
@@ -449,13 +452,11 @@ const RESUME_LOCATION = {
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
-      // you can add `href` if you want to open a hosted resume
-      // href: "/your/resume/path.pdf",
     },
   ],
 };
 
-const TRASH_LOCATION = {
+const TRASH_LOCATION: Location = {
   id: 4,
   type: "trash",
   name: "Trash",
@@ -483,16 +484,16 @@ const TRASH_LOCATION = {
   ],
 };
 
-export const locations = {
+export const locations: Record<LocationType, Location> = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
 };
 
-const INITIAL_Z_INDEX = 1000;
+export const INITIAL_Z_INDEX = 1000;
 
-const WINDOW_CONFIG = {
+export const WINDOW_CONFIG: WindowConfig = {
   finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
@@ -502,5 +503,3 @@ const WINDOW_CONFIG = {
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
-
-export { INITIAL_Z_INDEX, WINDOW_CONFIG };
