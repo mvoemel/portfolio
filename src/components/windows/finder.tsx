@@ -2,8 +2,8 @@ import { SearchIcon } from "lucide-react";
 import clsx from "clsx";
 
 import { locations } from "@/lib/constants";
-import { useWindowStore } from "@/stores/window";
-import { useLocationStore } from "@/stores/location";
+import { useWindowStore } from "@/stores/window-store";
+import { useLocationStore } from "@/stores/finder-store";
 import { WindowWrapper } from "../window-wrapper";
 import { WindowControls } from "../window-controls";
 

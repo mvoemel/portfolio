@@ -2,7 +2,7 @@ import { type ComponentType, useLayoutEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import { useWindowStore } from "@/stores/window";
+import { useWindowStore } from "@/stores/window-store";
 import { Draggable } from "gsap/all";
 
 export function WindowWrapper<P extends object>(

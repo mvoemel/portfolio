@@ -1,6 +1,6 @@
 import { locations } from "@/lib/constants";
-import { useLocationStore } from "@/stores/location";
-import { useWindowStore } from "@/stores/window";
+import { useLocationStore } from "@/stores/finder-store";
+import { useWindowStore } from "@/stores/window-store";
 import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
 import { Draggable } from "gsap/all";

@@ -2,7 +2,7 @@ import { SearchIcon } from "lucide-react";
 
 import { WindowWrapper } from "../window-wrapper";
 import { WindowControls } from "../window-controls";
-import { useWindowStore } from "@/stores/window";
+import { useWindowStore } from "@/stores/window-store";
 
 function Text() {
   const { windows } = useWindowStore();

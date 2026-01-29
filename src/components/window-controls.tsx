@@ -1,4 +1,4 @@
-import { useWindowStore } from "@/stores/window";
+import { useWindowStore } from "@/stores/window-store";
 
 type WindowControlsProps = {
   target: string;

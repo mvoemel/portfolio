@@ -1,8 +1,10 @@
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "@/lib/constants";
-import { useWindowStore } from "@/stores/window";
+import { useWindowStore } from "@/stores/window-store";
+import { useFinderStore } from "@/stores/finder-store";
 
 export function Navbar() {
+  const {} = useFinderStore();
   const { openWindow } = useWindowStore();
 
   return (
