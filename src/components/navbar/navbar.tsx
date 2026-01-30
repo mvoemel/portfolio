@@ -98,7 +98,7 @@ export function Navbar() {
         <div className="fixed inset-0 z-40" onClick={handleOutsideClick} />
       )}
 
-      <nav className="relative z-50 flex justify-between items-center bg-menubar-bg text-text-primary backdrop-blur-xl h-9 px-4 select-none text-sm">
+      <nav className="relative z-1000 flex justify-between items-center bg-menubar-bg text-text-primary backdrop-blur-xl h-9 px-4 select-none text-sm">
         <div className="flex items-center gap-4">
           <div className="relative">
             <button

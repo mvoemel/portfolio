@@ -1,13 +1,16 @@
 import { type ComponentType, useLayoutEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Draggable } from "gsap/all";
 
 import { useWindowStore } from "@/stores/window-store";
-import { Draggable } from "gsap/all";
+import type { WindowType } from "@/lib/types";
+import { cn } from "@/lib/util";
 
 export function WindowWrapper<P extends object>(
   Component: ComponentType<P>,
-  windowKey: string,
+  windowKey: WindowType,
+  className?: string,
 ) {
   const Wrapped = (props: P) => {
     const { focusWindow, windows } = useWindowStore();
@@ -46,7 +49,12 @@ export function WindowWrapper<P extends object>(
     }, [isOpen]);
 
     return (
-      <section id={windowKey} ref={ref} style={{ zIndex }} className="absolute">
+      <section
+        id={windowKey}
+        ref={ref}
+        style={{ zIndex }}
+        className={cn("absolute", className)}
+      >
         <Component {...props} />
       </section>
     );

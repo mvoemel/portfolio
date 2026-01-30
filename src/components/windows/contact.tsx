@@ -1,6 +1,6 @@
 import { socials } from "@/lib/constants";
-import { WindowWrapper } from "../window-wrapper";
-import { WindowControls } from "../window-controls";
+import { WindowWrapper } from "./window-wrapper";
+import { WindowControls } from "./window-controls";
 
 function Contact() {
   return (

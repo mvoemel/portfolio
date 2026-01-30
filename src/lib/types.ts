@@ -19,6 +19,7 @@ interface FileSystemItemBase {
 export interface FileItem extends FileSystemItemBase {
   kind: "file";
   extension: string;
+  windowPosition?: string;
   meta: FileContent;
 }
 

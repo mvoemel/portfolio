@@ -89,7 +89,7 @@ export function Spotlight({ isOpen, onClose }: SpotlightProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh]">
+    <div className="fixed inset-0 z-1000 flex items-start justify-center pt-[20vh]">
       <div
         className="fixed inset-0 backdrop-brightness-75 transition-opacity"
         aria-hidden="true"

@@ -38,7 +38,7 @@ const getIcon = (ext: string) => {
   return icons[ext] || "/icons/file.png";
 };
 
-const f = (name: string, meta: FileContent, pos?: string): FileSystemItem => {
+const f = (name: string, meta: FileContent): FileSystemItem => {
   const extension = name.split(".").pop() || "txt";
   return {
     id: nextId(),
@@ -46,7 +46,6 @@ const f = (name: string, meta: FileContent, pos?: string): FileSystemItem => {
     name,
     extension,
     icon: getIcon(extension),
-    position: pos,
     meta,
   };
 };
@@ -57,7 +56,6 @@ const d = (
   opts?: {
     icon?: string;
     finderIcon?: LucideIcon;
-    pos?: string;
     winPos?: string;
   },
 ): FolderItem => ({
@@ -66,7 +64,6 @@ const d = (
   name,
   icon: opts?.icon || "/icons/folder.png",
   finderIcon: opts?.finderIcon,
-  position: opts?.pos,
   windowPosition: opts?.winPos,
   children,
 });
@@ -83,32 +80,15 @@ const javaCode = `public void wakeUp() {
 const aboutFolder = d(
   "About",
   [
-    f(
-      "portfolio.url",
-      { type: "link", href: "https://michael.voemel.org" },
-      "top-10 right-20",
-    ),
-    f(
-      "me.png",
-      { type: "image", src: "/images/profile-pic-comic.png" },
-      "top-10 left-5",
-    ),
-    f(
-      "drivers-license.png",
-      { type: "image", src: "/placeholder.svg" },
-      "top-28 right-72",
-    ),
-    f(
-      "short-description.txt",
-      { type: "text", content: aboutShortDescription },
-      "top-60 left-5",
-    ),
-    f("hobbies.txt", { type: "text", content: aboutHobbies }, "top-48 left-25"),
-    f(
-      "technical-skills.md",
-      { type: "text", content: aboutTechnicalSkills },
-      "top-20 right-15",
-    ),
+    f("portfolio.url", { type: "link", href: "https://michael.voemel.org" }),
+    f("me.png", { type: "image", src: "/images/profile-pic-comic.png" }),
+    f("drivers-license.png", { type: "image", src: "/placeholder.svg" }),
+    f("short-description.txt", {
+      type: "text",
+      content: aboutShortDescription,
+    }),
+    f("hobbies.txt", { type: "text", content: aboutHobbies }),
+    f("technical-skills.md", { type: "text", content: aboutTechnicalSkills }),
   ],
   { icon: "/icons/folder-home.png", finderIcon: InfoIcon },
 );
@@ -116,49 +96,23 @@ const aboutFolder = d(
 const projectsFolder = d(
   "Projects",
   [
-    d(
-      "DropIn",
-      [
-        f(
-          "description.md",
-          { type: "text", content: dropinDesc },
-          "top-5 left-10",
-        ),
-      ],
-      { pos: "top-10 left-5", winPos: "top-[5vh] left-5" },
-    ),
+    d("DropIn", [f("description.md", { type: "text", content: dropinDesc })], {
+      winPos: "top-[2vh] left-5",
+    }),
     d(
       "Studyflow",
-      [
-        f(
-          "description.md",
-          { type: "text", content: studyflowDesc },
-          "top-5 left-10",
-        ),
-      ],
-      { pos: "top-52 right-80", winPos: "top-[15vh] left-5" },
+      [f("description.md", { type: "text", content: studyflowDesc })],
+      { winPos: "top-[12vh] left-5" },
     ),
     d(
       "MoneyMate",
-      [
-        f(
-          "description.md",
-          { type: "text", content: moneymateDesc },
-          "top-5 left-10",
-        ),
-      ],
-      { pos: "top-10 left-80", winPos: "top-[25vh] left-5" },
+      [f("description.md", { type: "text", content: moneymateDesc })],
+      { winPos: "top-[22vh] left-5" },
     ),
     d(
       "Website Builder",
-      [
-        f(
-          "description.md",
-          { type: "text", content: websiteBuilderDesc },
-          "top-5 left-10",
-        ),
-      ],
-      { pos: "top-36 left-40", winPos: "top-[35vh] left-5" },
+      [f("description.md", { type: "text", content: websiteBuilderDesc })],
+      { winPos: "top-[32vh] left-5" },
     ),
   ],
   { finderIcon: ClipboardListIcon },
@@ -168,19 +122,13 @@ const certsFolder = d("Certifications", [], { finderIcon: BadgeCheckIcon });
 
 const otherFolder = d(
   "Other",
-  [f("changelog.md", { type: "text", content: changelog }, "top-5 left-10")],
+  [f("changelog.md", { type: "text", content: changelog })],
   { finderIcon: CircleEllipsisIcon },
 );
 
 const archiveFolder = d(
   "Archive",
-  [
-    f(
-      "placeholder.png",
-      { type: "image", src: "/placeholder.svg" },
-      "top-10 left-10",
-    ),
-  ],
+  [f("placeholder.png", { type: "image", src: "/placeholder.svg" })],
   { finderIcon: Trash2Icon },
 );
 
@@ -192,11 +140,11 @@ export const fileSystemRoot = d(
     certsFolder,
     otherFolder,
     archiveFolder,
-    f(
-      "morning-routine.java",
-      { type: "code", content: javaCode, language: "java" },
-      "bottom-20 right-20",
-    ),
+    f("morning-routine.java", {
+      type: "code",
+      content: javaCode,
+      language: "java",
+    }),
   ],
   { finderIcon: HomeIcon },
 );

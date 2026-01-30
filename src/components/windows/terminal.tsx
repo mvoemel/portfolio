@@ -1,7 +1,7 @@
 import { techStack } from "@/lib/constants";
-import { WindowWrapper } from "../window-wrapper";
+import { WindowWrapper } from "./window-wrapper";
 import { CheckIcon, FlagIcon } from "lucide-react";
-import { WindowControls } from "../window-controls";
+import { WindowControls } from "./window-controls";
 
 function Terminal() {
   return (

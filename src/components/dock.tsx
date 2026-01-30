@@ -7,6 +7,7 @@ import { useWindowStore } from "@/stores/window-store";
 import { dockApps } from "@/lib/constants";
 import { cn } from "@/lib/util";
 
+// TODO: implement point beneath app if open
 export function Dock() {
   const { toggleWindow } = useWindowStore();
   const dockRef = useRef<HTMLDivElement | null>(null);

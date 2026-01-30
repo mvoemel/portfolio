@@ -1,8 +1,8 @@
 import { Document, Page, pdfjs } from "react-pdf";
 import { DownloadIcon } from "lucide-react";
 
-import { WindowWrapper } from "../window-wrapper";
-import { WindowControls } from "../window-controls";
+import { WindowWrapper } from "./window-wrapper";
+import { WindowControls } from "./window-controls";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
