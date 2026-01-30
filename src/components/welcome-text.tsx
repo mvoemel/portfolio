@@ -65,7 +65,7 @@ const setupTextHover = (
   };
 };
 
-export function Welcome() {
+export function WelcomeText() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const subtitleRef = useRef<HTMLParagraphElement | null>(null);
 
@@ -80,7 +80,10 @@ export function Welcome() {
   }, []);
 
   return (
-    <section id="welcome">
+    <section
+      id="welcome"
+      className="text-white flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10"
+    >
       <p ref={subtitleRef}>
         {renderText(
           "Hey, I'm Michael! Welcome to my",
@@ -92,8 +95,10 @@ export function Welcome() {
         {renderText("portfolio", "text-9xl italic font-georama")}
       </h1>
 
-      <div className="small-screen">
-        <p>This Portfolio is designed for desktop/tabled screen only.</p>
+      <div className="sm:hidden m-7 bg-error-bg backdrop-blur-lg p-3 rounded-md absolute top-10;">
+        <p className="flex-1 text-[16px] text-center font-roboto text-text-tertiary">
+          This Portfolio is designed for desktop/tabled screen only.
+        </p>
       </div>
     </section>
   );

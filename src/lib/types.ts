@@ -36,20 +36,33 @@ export type NavSystemItemAction = "href" | "clipboard" | "reset" | "close";
 
 export interface NavIconItem {
   id: string;
-  icon: string;
+  icon: LucideIcon;
   action: NavIconItemType;
 }
 
 export interface NavSystemItem {
   id: string;
   name: string;
-  Icon: LucideIcon;
+  icon: LucideIcon;
   action: NavSystemItemAction;
 }
 
 export type NavLinkItem =
-  | { id: string; type: "link"; name: string; app: WindowType; path?: string }
-  | { id: string; type: "dropdown"; name: string; children: NavLinkItem[] };
+  | {
+      id: string;
+      type: "link";
+      name: string;
+      icon?: string;
+      app: WindowType;
+      path?: string;
+    }
+  | {
+      id: string;
+      type: "dropdown";
+      name: string;
+      icon?: string;
+      children: NavLinkItem[];
+    };
 
 export type WindowType =
   | "finder"

@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
-import { dockApps } from "@/lib/constants";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 import { useWindowStore } from "@/stores/window-store";
+import { dockApps } from "@/lib/constants";
+import { cn } from "@/lib/util";
 
 export function Dock() {
-  const { openWindow, closeWindow, windows } = useWindowStore();
+  const { toggleWindow } = useWindowStore();
   const dockRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
@@ -58,47 +60,45 @@ export function Dock() {
     };
   }, []);
 
-  const toggleApp = (app: { id: string; canOpen: boolean }) => {
-    if (!app.canOpen) return;
-
-    const window = windows[app.id];
-    if (!window) {
-      console.log(`Window '${app.id}' not found in config.`);
-      return;
-    }
-
-    if (window.isOpen) {
-      closeWindow(app.id);
-    } else {
-      openWindow(app.id);
-    }
-  };
-
   return (
-    <section id="dock">
-      <div ref={dockRef} className="dock-container">
-        {dockApps.map(({ id, name, icon, canOpen }) => (
-          <div key={id} className="relative flex justify-center">
+    <section
+      id="dock"
+      className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden"
+    >
+      <div
+        ref={dockRef}
+        className="bg-dock-bg border-dock-border backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5"
+      >
+        {dockApps.map(({ type, tooltip, icon, canOpen }) => (
+          <div key={type} className="relative flex justify-center">
             <button
               type="button"
-              className="dock-icon"
-              aria-label={name}
+              className="dock-icon size-14 3xl:size-20 cursor-pointer"
+              aria-label={tooltip}
               data-tooltip-id="dock-tooltip"
-              data-tooltip-content={name}
+              data-tooltip-content={tooltip}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
-              onClick={() => toggleApp({ id, canOpen })}
+              onClick={() => canOpen && toggleWindow(type)}
             >
               <img
-                src={`/images/${icon}`}
-                alt={name}
+                src={icon}
+                alt={tooltip}
                 loading="lazy"
-                className={canOpen ? "" : "opacity-60"}
+                className={cn(
+                  "object-cover object-center",
+                  !canOpen && "opacity-60",
+                )}
               />
             </button>
           </div>
         ))}
-        <Tooltip id="dock-tooltip" place="top" className="tooltip" />
+
+        <Tooltip
+          id="dock-tooltip"
+          place="top"
+          className="py-1! px-3! w-fit! text-center! text-xs! rounded-md! bg-bg-sunken! text-text-secondary! shadow-2xl!"
+        />
       </div>
     </section>
   );

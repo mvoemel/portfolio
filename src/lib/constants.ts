@@ -1,4 +1,11 @@
-import { CircleXIcon, CopyIcon, InfoIcon, PowerIcon } from "lucide-react";
+import {
+  CircleXIcon,
+  CopyIcon,
+  InfoIcon,
+  PowerIcon,
+  SearchIcon,
+  Settings2Icon,
+} from "lucide-react";
 
 import type {
   DockApp,
@@ -7,9 +14,11 @@ import type {
   NavSystemItem,
 } from "@/lib/types";
 
-export const navIcons: NavIconItem[] = [
-  { id: "1", icon: "/icons/spotlight.svg", action: "spotlight" },
-  { id: "2", icon: "/icons/control-center.svg", action: "controlcenter" },
+export const navSystemDropdown: NavSystemItem[] = [
+  { id: "1", name: "About this portfolio", icon: InfoIcon, action: "href" },
+  { id: "2", name: "Copy link", icon: CopyIcon, action: "clipboard" },
+  { id: "3", name: "Close all windows", icon: CircleXIcon, action: "reset" },
+  { id: "4", name: "Shut down", icon: PowerIcon, action: "close" },
 ];
 
 export const navLinks: NavLinkItem[] = [
@@ -22,6 +31,7 @@ export const navLinks: NavLinkItem[] = [
       {
         id: "2-1",
         name: "DropIn",
+        icon: "/icons/folder.png",
         type: "link",
         app: "finder",
         path: "Projects/DropIn",
@@ -29,6 +39,7 @@ export const navLinks: NavLinkItem[] = [
       {
         id: "2-2",
         name: "Studyflow",
+        icon: "/icons/folder.png",
         type: "link",
         app: "finder",
         path: "Projects/Studyflow",
@@ -36,20 +47,27 @@ export const navLinks: NavLinkItem[] = [
       {
         id: "2-3",
         name: "MoneyMate",
+        icon: "/icons/folder.png",
         type: "link",
         app: "finder",
         path: "Projects/MoneyMate",
+      },
+      {
+        id: "2-4",
+        name: "Website Builder",
+        icon: "/icons/folder.png",
+        type: "link",
+        app: "finder",
+        path: "Projects/Website Builder",
       },
     ],
   },
   { id: "3", name: "Contact", type: "link", app: "contacts" },
 ];
 
-export const navSystemDropdown: NavSystemItem[] = [
-  { id: "1", name: "About this portfolio", Icon: InfoIcon, action: "href" },
-  { id: "2", name: "Copy link", Icon: CopyIcon, action: "clipboard" },
-  { id: "3", name: "Close all windows", Icon: CircleXIcon, action: "reset" },
-  { id: "4", name: "Shut down", Icon: PowerIcon, action: "close" },
+export const navIcons: NavIconItem[] = [
+  { id: "1", icon: SearchIcon, action: "spotlight" },
+  { id: "2", icon: Settings2Icon, action: "controlcenter" },
 ];
 
 export const dockApps: DockApp[] = [
@@ -74,7 +92,7 @@ export const dockApps: DockApp[] = [
   {
     type: "contacts",
     tooltip: "Contact",
-    icon: "/icons/contact-app.png",
+    icon: "/icons/contacts-app.png",
     canOpen: true,
   },
   {

@@ -13,10 +13,10 @@ import type { FileSystemItem, FolderItem, FileContent } from "@/lib/types";
 import aboutHobbies from "../assets/about/hobbies.txt?raw";
 import aboutShortDescription from "../assets/about/short-description.txt?raw";
 import aboutTechnicalSkills from "../assets/about/technical-skills.md?raw";
-import dropinDesc from "../assets/projects/dropin?raw";
-import moneymateDesc from "../assets/projects/moneymate?raw";
-import studyflowDesc from "../assets/projects/studyflow?raw";
-import websiteBuilderDesc from "../assets/projects/website-builder?raw";
+import dropinDesc from "../assets/projects/dropin/description.md?raw";
+import moneymateDesc from "../assets/projects/moneymate/description.md?raw";
+import studyflowDesc from "../assets/projects/studyflow/description.md?raw";
+import websiteBuilderDesc from "../assets/projects/website-builder/description.md?raw";
 import changelog from "../assets/other/changelog.md?raw";
 
 let _idCounter = 0;
@@ -84,7 +84,7 @@ const aboutFolder = d(
   "About",
   [
     f(
-      "michael.voemel.org.url",
+      "portfolio.url",
       { type: "link", href: "https://michael.voemel.org" },
       "top-10 right-20",
     ),
@@ -213,4 +213,27 @@ export const findItemById = (
     }
   }
   return null;
+};
+
+export const findItemByPath = (
+  path: string,
+  root = fileSystemRoot,
+): FileSystemItem | null => {
+  if (path === "/" || path === "") return root;
+
+  const parts = path.split("/").filter((part) => part !== "");
+
+  let current: FileSystemItem = root;
+  for (const part of parts) {
+    if (current.kind !== "folder") return null;
+
+    const nextItem: FileSystemItem | undefined = current.children.find(
+      (child) => child.name === part,
+    );
+
+    if (!nextItem) return null;
+    current = nextItem;
+  }
+
+  return current;
 };
