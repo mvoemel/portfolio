@@ -6,22 +6,11 @@ import { WelcomeText } from "./components/welcome-text";
 import { ThemeProvider } from "./providers/theme-provider";
 import { Dock } from "./components/dock";
 import { Desktop } from "./components/desktop";
-import { FinderWindow } from "./components/windows";
-// import { TerminalWindow } from "./components/windows/terminal";
-// import { SafariWindow } from "./components/windows/safari";
-// import { ResumeWindow } from "./components/windows/resume";
-// import { TextWindow } from "./components/windows/text";
-// import { ImageWindow } from "./components/windows/image";
-// import { ContactWindow } from "./components/windows/contact";
+import { FinderWindow, TerminalWindow } from "./components/windows";
 
 gsap.registerPlugin(Draggable);
 
 // TODO: refactor; it should have the following components:
-// Navbar
-// WelcomeText
-// Dock
-// DesktopItems
-// FinderWindow
 // SafariWindow
 // MapsWindow
 // ContactsWindow
@@ -38,7 +27,7 @@ export default function App() {
         <Desktop />
 
         <FinderWindow />
-        {/* <TerminalWindow /> */}
+        <TerminalWindow />
         {/* <SafariWindow /> */}
         {/* <ResumeWindow /> */}
         {/* <TextWindow /> */}

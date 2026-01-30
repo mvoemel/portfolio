@@ -50,7 +50,7 @@ function Finder() {
 
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-2 bg-bg-secondary h-12">
+      <div className="window-header">
         <div className="flex items-center gap-4">
           <WindowControls target="finder" />
 
@@ -194,5 +194,5 @@ function Finder() {
 export const FinderWindow = WindowWrapper(
   Finder,
   "finder",
-  "absolute w-3xl left-40 top-40 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl bg-bg-secondary",
+  "w-3xl absolute left-40 top-40 bg-bg-secondary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
 );
