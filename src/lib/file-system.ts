@@ -38,7 +38,11 @@ const getIcon = (ext: string) => {
   return icons[ext] || "/icons/file.png";
 };
 
-const f = (name: string, meta: FileContent): FileSystemItem => {
+const f = (
+  name: string,
+  meta: FileContent,
+  opts?: { enableDownload?: boolean; winPos?: string },
+): FileSystemItem => {
   const extension = name.split(".").pop() || "txt";
   return {
     id: nextId(),
@@ -46,6 +50,8 @@ const f = (name: string, meta: FileContent): FileSystemItem => {
     name,
     extension,
     icon: getIcon(extension),
+    downloadable: opts?.enableDownload,
+    windowPosition: opts?.winPos,
     meta,
   };
 };
@@ -122,7 +128,17 @@ const certsFolder = d("Certifications", [], { finderIcon: BadgeCheckIcon });
 
 const otherFolder = d(
   "Other",
-  [f("changelog.md", { type: "text", content: changelog })],
+  [
+    f("changelog.md", { type: "text", content: changelog }),
+    f(
+      "resume.pdf",
+      {
+        type: "pdf",
+        src: "/files/resume.pdf",
+      },
+      { enableDownload: true },
+    ),
+  ],
   { finderIcon: CircleEllipsisIcon },
 );
 

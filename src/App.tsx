@@ -6,16 +6,20 @@ import { WelcomeText } from "./components/welcome-text";
 import { ThemeProvider } from "./providers/theme-provider";
 import { Dock } from "./components/dock";
 import { Desktop } from "./components/desktop";
-import { FinderWindow, TerminalWindow } from "./components/windows";
+import {
+  FinderWindow,
+  PreviewWindow,
+  TerminalWindow,
+} from "./components/windows";
 
 gsap.registerPlugin(Draggable);
 
-// TODO: refactor; it should have the following components:
+// TODO: implement:
 // SafariWindow
 // MapsWindow
 // ContactsWindow
-// TerminalWindow
-// PreviewWindow
+
+// TODO: maybe rework how preview functions; possiblity to have multiple preview windows open
 
 export default function App() {
   return (
@@ -28,10 +32,8 @@ export default function App() {
 
         <FinderWindow />
         <TerminalWindow />
+        <PreviewWindow />
         {/* <SafariWindow /> */}
-        {/* <ResumeWindow /> */}
-        {/* <TextWindow /> */}
-        {/* <ImageWindow /> */}
         {/* <ContactWindow /> */}
       </main>
     </ThemeProvider>
