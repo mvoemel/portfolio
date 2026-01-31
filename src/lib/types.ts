@@ -89,3 +89,14 @@ export type DockApp = {
   icon: string;
   canOpen: boolean;
 };
+
+export type SafariLink = {
+  name: string;
+  icon?: string;
+  href: string;
+};
+
+export type SafariLinkGroup = {
+  title: string;
+  links: SafariLink[];
+};

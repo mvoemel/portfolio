@@ -9,13 +9,13 @@ import { Desktop } from "./components/desktop";
 import {
   FinderWindow,
   PreviewWindow,
+  SafariWindow,
   TerminalWindow,
 } from "./components/windows";
 
 gsap.registerPlugin(Draggable);
 
 // TODO: implement:
-// SafariWindow
 // MapsWindow
 // ContactsWindow
 
@@ -33,7 +33,7 @@ export default function App() {
         <FinderWindow />
         <TerminalWindow />
         <PreviewWindow />
-        {/* <SafariWindow /> */}
+        <SafariWindow />
         {/* <ContactWindow /> */}
       </main>
     </ThemeProvider>

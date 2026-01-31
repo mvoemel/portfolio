@@ -12,6 +12,7 @@ import type {
   NavIconItem,
   NavLinkItem,
   NavSystemItem,
+  SafariLinkGroup,
 } from "@/lib/types";
 
 export const navSystemDropdown: NavSystemItem[] = [
@@ -106,5 +107,39 @@ export const dockApps: DockApp[] = [
     tooltip: "Archive",
     icon: "/icons/trash.png",
     canOpen: false,
+  },
+];
+
+export const safariLinks: SafariLinkGroup[] = [
+  {
+    title: "Frequently Visited",
+    links: [
+      {
+        name: "Portfolio",
+        icon: "/favicon.png",
+        href: "https://michael.voemel.org",
+      },
+      {
+        name: "Github",
+        href: "https://github.com/mvoemel",
+      },
+      {
+        name: "LinkedIn",
+        href: "https://linkedin.com/in/mvoemel",
+      },
+    ],
+  },
+  {
+    title: "Companies I have worked with",
+    links: [
+      {
+        name: "Microshield",
+        href: "https://microshield.ch",
+      },
+      {
+        name: "Titanion",
+        href: "https://titanion.ch",
+      },
+    ],
   },
 ];
