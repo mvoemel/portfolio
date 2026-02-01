@@ -58,7 +58,7 @@ function Preview() {
 
     if (meta.type === "text" && extension === "md") {
       return (
-        <div className="p-6 prose prose-sm max-w-none dark:prose-invert overflow-y-auto h-full bg-bg-tertiary text-text-primary">
+        <div className="p-6 prose prose-sm max-w-none dark:prose-invert overflow-y-auto h-full bg-bg-primary text-text-primary">
           <ReactMarkdown>{meta.content}</ReactMarkdown>
         </div>
       );
@@ -66,7 +66,7 @@ function Preview() {
 
     if (meta.type === "text") {
       return (
-        <div className="p-4 h-full bg-bg-tertiary overflow-y-auto">
+        <div className="p-4 h-full bg-bg-primary overflow-y-auto">
           <pre className="whitespace-pre-wrap font-mono text-sm text-text-primary">
             {meta.content}
           </pre>
@@ -91,7 +91,7 @@ function Preview() {
 
     if (meta.type === "image") {
       return (
-        <div className="flex items-center justify-center h-full bg-bg-tertiary">
+        <div className="flex items-center justify-center h-full bg-bg-primary">
           <img
             src={meta.src}
             alt={file.name}
@@ -151,5 +151,5 @@ function Preview() {
 export const PreviewWindow = WindowWrapper(
   Preview,
   "preview",
-  "w-3xl h-[600px] bg-bg-secondary rounded-xl shadow-2xl overflow-hidden flex flex-col",
+  "w-3xl h-[600px] bg-bg-tertiary rounded-xl shadow-2xl overflow-hidden flex flex-col",
 );

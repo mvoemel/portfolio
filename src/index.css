@@ -326,7 +326,7 @@ body {
 
 @layer components {
   .window-header {
-    @apply flex items-center justify-between px-4 py-2 bg-bg-secondary h-12;
+    @apply flex items-center justify-between px-4 py-2 bg-bg-tertiary h-12;
   }
 
   #contact {

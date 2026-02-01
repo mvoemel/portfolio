@@ -7,6 +7,7 @@ import { ThemeProvider } from "./providers/theme-provider";
 import { Dock } from "./components/dock";
 import { Desktop } from "./components/desktop";
 import {
+  ContactWindow,
   FinderWindow,
   PreviewWindow,
   SafariWindow,
@@ -17,7 +18,6 @@ gsap.registerPlugin(Draggable);
 
 // TODO: implement:
 // MapsWindow
-// ContactsWindow
 
 // TODO: maybe rework how preview functions; possiblity to have multiple preview windows open
 
@@ -34,7 +34,7 @@ export default function App() {
         <TerminalWindow />
         <PreviewWindow />
         <SafariWindow />
-        {/* <ContactWindow /> */}
+        <ContactWindow />
       </main>
     </ThemeProvider>
   );

@@ -27,11 +27,12 @@ function Safari() {
 
   return (
     <div className="flex flex-col h-full w-full bg-bg-primary/50 backdrop-blur-xl">
-      <div className="window-header text-text-secondary bg-bg-tertiary/90 shrink-0">
+      <div className="window-header text-text-secondary shrink-0">
         <WindowControls target="safari" />
-        <div className="flex items-center gap-3 w-2/3 bg-bg-secondary/50 rounded-lg px-3 py-1.5 transition-colors focus-within:bg-bg-primary border border-transparent focus-within:border-black/5 dark:focus-within:border-white/10">
+        <div className="flex items-center gap-3 w-2/3 bg-bg-secondary rounded-lg px-3 py-1.5 transition-colors focus-within:bg-bg-primary border border-transparent focus-within:border-black/5 dark:focus-within:border-white/10">
           <SearchIcon size={14} className="opacity-50" />
 
+          {/* TODO: fix onBlur behaviour */}
           <input
             type="text"
             placeholder="Search or enter website name"
@@ -93,5 +94,5 @@ function Safari() {
 export const SafariWindow = WindowWrapper(
   Safari,
   "safari",
-  "w-4xl absolute left-2/12 top-40 bg-bg-secondary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
+  "w-4xl absolute left-2/12 top-40 bg-bg-tertiary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
 );

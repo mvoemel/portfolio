@@ -194,5 +194,5 @@ function Finder() {
 export const FinderWindow = WindowWrapper(
   Finder,
   "finder",
-  "w-3xl absolute left-40 top-40 bg-bg-secondary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
+  "w-3xl absolute left-40 top-40 bg-bg-tertiary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
 );

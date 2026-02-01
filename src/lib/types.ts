@@ -100,3 +100,12 @@ export type SafariLinkGroup = {
   title: string;
   links: SafariLink[];
 };
+
+export type ContactCard = {
+  name: string;
+  profilePicture?: string;
+  email: string;
+  phone?: string;
+  github?: string;
+  linkedin?: string;
+};

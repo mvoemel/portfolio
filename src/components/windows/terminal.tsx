@@ -254,7 +254,7 @@ function Terminal() {
 
   return (
     <>
-      <div className="window-header">
+      <div className="window-header bg-bg-tertiary">
         <WindowControls target="terminal" />
 
         <div className=" w-full flex justify-center">
@@ -312,5 +312,5 @@ function Terminal() {
 export const TerminalWindow = WindowWrapper(
   Terminal,
   "terminal",
-  "w-xl absolute left-1/12 top-32 bg-bg-secondary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
+  "w-xl absolute left-1/12 top-32 bg-bg-tertiary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden",
 );
