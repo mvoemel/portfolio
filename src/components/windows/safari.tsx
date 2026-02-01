@@ -44,7 +44,7 @@ function Safari() {
         <div className="w-4" /> {/* Spacer for visual balance with controls */}
       </div>
 
-      <div className="flex-1 overflow-y-auto p-10 min-h-100">
+      <div className="flex-1 overflow-y-auto p-10 min-h-100 bg-bg-primary">
         <div className="max-w-4xl mx-auto space-y-12">
           {filteredGroups.length > 0 ? (
             filteredGroups.map((group) => (

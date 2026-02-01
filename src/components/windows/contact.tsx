@@ -106,23 +106,25 @@ function Contact() {
                 </div>
               </div>
 
-              <div className="group">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm font-medium text-text-tertiary">
-                    Phone
-                  </span>
-                  <a
-                    href={`tel:${selectedContact.phone}`}
-                    className="text-text-tertiary hover:text-text-primary transition-colors"
-                    title="Call phone"
-                  >
-                    <PhoneIcon size={14} />
-                  </a>
+              {selectedContact.phone && (
+                <div className="group">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-sm font-medium text-text-tertiary">
+                      Phone
+                    </span>
+                    <a
+                      href={`tel:${selectedContact.phone}`}
+                      className="text-text-tertiary hover:text-text-primary transition-colors"
+                      title="Call phone"
+                    >
+                      <PhoneIcon size={14} />
+                    </a>
+                  </div>
+                  <div className="text-lg text-text-primary break-all">
+                    {selectedContact.phone}
+                  </div>
                 </div>
-                <div className="text-lg text-text-primary break-all">
-                  {selectedContact.phone}
-                </div>
-              </div>
+              )}
 
               {selectedContact.github && (
                 <div>

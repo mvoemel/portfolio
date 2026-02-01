@@ -3,3 +3,4 @@ export * from "./terminal";
 export * from "./preview";
 export * from "./safari";
 export * from "./contact";
+export * from "./maps";

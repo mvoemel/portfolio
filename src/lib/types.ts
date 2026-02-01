@@ -1,3 +1,4 @@
+import type { GeoGeometryObjects } from "d3-geo";
 import type { LucideIcon } from "lucide-react";
 
 export type FileType = "txt" | "md" | "img" | "pdf" | "url" | "code";
@@ -108,4 +109,19 @@ export type ContactCard = {
   phone?: string;
   github?: string;
   linkedin?: string;
+};
+
+type GeoFeature = {
+  type: "Feature";
+  id: string | number;
+  geometry: GeoGeometryObjects;
+  properties: {
+    name: string;
+    [key: string]: unknown;
+  };
+};
+
+export type GeoFeatureCollection = {
+  type: "FeatureCollection";
+  features: GeoFeature[];
 };

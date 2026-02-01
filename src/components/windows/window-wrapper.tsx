@@ -17,6 +17,10 @@ export function WindowWrapper<P extends object>(
     const { isOpen, zIndex } = windows[windowKey];
     const ref = useRef<HTMLDivElement | null>(null);
 
+    const handleFocus = () => {
+      focusWindow(windowKey);
+    };
+
     useGSAP(() => {
       const el = ref.current;
       if (!el || !isOpen) return;
@@ -34,8 +38,10 @@ export function WindowWrapper<P extends object>(
       const el = ref.current;
       if (!el) return;
 
+      const header = el.querySelector(".window-header");
+
       const [instance] = Draggable.create(el, {
-        onPress: () => focusWindow(windowKey),
+        trigger: header,
         dragClickables: false,
       });
 
@@ -54,6 +60,7 @@ export function WindowWrapper<P extends object>(
         id={windowKey}
         ref={ref}
         style={{ zIndex }}
+        onMouseDownCapture={handleFocus}
         className={cn("absolute", className)}
       >
         <Component {...props} />

@@ -1,23 +1,21 @@
 import gsap from "gsap";
 import { Draggable } from "gsap/all";
 
+import { ThemeProvider } from "./providers/theme-provider";
 import { Navbar } from "./components/navbar";
 import { WelcomeText } from "./components/welcome-text";
-import { ThemeProvider } from "./providers/theme-provider";
 import { Dock } from "./components/dock";
 import { Desktop } from "./components/desktop";
 import {
   ContactWindow,
   FinderWindow,
+  MapsWindow,
   PreviewWindow,
   SafariWindow,
   TerminalWindow,
 } from "./components/windows";
 
 gsap.registerPlugin(Draggable);
-
-// TODO: implement:
-// MapsWindow
 
 // TODO: maybe rework how preview functions; possiblity to have multiple preview windows open
 
@@ -35,6 +33,7 @@ export default function App() {
         <PreviewWindow />
         <SafariWindow />
         <ContactWindow />
+        <MapsWindow />
       </main>
     </ThemeProvider>
   );
