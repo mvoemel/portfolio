@@ -122,7 +122,7 @@ export function Navbar() {
                 setActiveMenu(activeMenu === "system" ? null : "system")
               }
               className={cn(
-                "text-lg hover:bg-menubar-hover px-2 rounded",
+                "text-lg hover:bg-menubar-hover px-2 rounded hidden sm:block",
                 activeMenu === "system" && "bg-menubar-active",
               )}
             >
@@ -150,9 +150,9 @@ export function Navbar() {
             )}
           </div>
 
-          <span className="font-bold hidden sm:block">Michael's Portfolio</span>
+          <span className="font-bold">Michael's Portfolio</span>
 
-          <ul className="flex items-center gap-1">
+          <ul className="hidden sm:flex items-center gap-1">
             {navLinks.map((link) => (
               <li key={link.id} className="relative">
                 <button
@@ -180,7 +180,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3">
             {navIcons.map((icon) => (
               <button
                 key={icon.id}

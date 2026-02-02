@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <style>
+      .cursor { animation: blink 1s step-end infinite; }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background card -->
+  <rect width="128" height="128" rx="14" fill="#161b22"/>
+  <rect width="128" height="128" rx="14" fill="none" stroke="#30363d" stroke-width="2.5"/>
+
+  <!-- Terminal top bar -->
+  <rect y="0" width="128" height="30" rx="14" fill="#1c2333"/>
+  <rect y="14" width="128" height="16" fill="#1c2333"/>
+
+  <!-- Traffic-light dots -->
+  <circle cx="18" cy="15" r="5" fill="#ff5f56"/>
+  <circle cx="33" cy="15" r="5" fill="#ffbd2e"/>
+  <circle cx="48" cy="15" r="5" fill="#27c93f"/>
+
+  <!-- $ whoami -->
+  <text x="16" y="56" font-family="Consolas, Monaco, monospace" font-size="18" fill="#7ee787">$</text>
+  <text x="28" y="56" font-family="Consolas, Monaco, monospace" font-size="18" fill="#58a6ff">whoami</text>
+
+  <!-- MV output -->
+  <text x="16" y="90" font-family="Consolas, Monaco, monospace" font-size="30" font-weight="700" fill="#c9d1d9">MV</text>
+
+  <!-- Next prompt + blinking cursor -->
+  <text x="16" y="116" font-family="Consolas, Monaco, monospace" font-size="18" fill="#7ee787">$</text>
+  <rect class="cursor" x="28" y="101" width="9" height="16" rx="2" fill="#58a6ff"/>
+</svg>

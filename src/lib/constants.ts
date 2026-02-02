@@ -86,6 +86,7 @@ const getIcon = (ext: string) => {
     png: iconsSrc.files.image,
     jpg: iconsSrc.files.image,
     jpeg: iconsSrc.files.image,
+    svg: iconsSrc.files.image,
     pdf: iconsSrc.files.pdf,
     url: iconsSrc.files.url,
     java: iconsSrc.files.code,
@@ -268,6 +269,10 @@ const otherFolder = d(
       f("codebase.url", {
         type: "link",
         href: "https://github.com/mvoemel/portfolio",
+      }),
+      f("logo.svg", {
+        type: "image",
+        src: "/logo.svg",
       }),
       f("techstack.png", {
         type: "image",

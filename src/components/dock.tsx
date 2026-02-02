@@ -72,9 +72,8 @@ export function Dock() {
       >
         {[
           ...dockApps,
-          // TODO: refactor
           {
-            type: "trash" as WindowType,
+            type: "trash" as WindowType, // Not actually a WindowType; just for eslint
             name: "Trash",
             icon: iconsSrc.folders.trash,
             canOpen: false,

@@ -34,7 +34,7 @@ export default function App() {
         <ContactWindow />
         <MapsWindow />
 
-        <Debug />
+        {import.meta.env.DEV && <Debug />}
       </main>
     </ThemeProvider>
   );

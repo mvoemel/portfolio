@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { MonitorIcon } from "lucide-react";
 
 const fontWeights = {
   subtitle: { min: 100, max: 400, default: 100 },
@@ -95,9 +96,13 @@ export function WelcomeText() {
         {renderText("portfolio", "text-9xl italic font-georama")}
       </h1>
 
-      <div className="sm:hidden m-7 bg-error-bg backdrop-blur-lg p-3 rounded-md absolute top-10;">
-        <p className="flex-1 text-[16px] text-center font-roboto text-text-tertiary">
-          This Portfolio is designed for desktop/tabled screen only.
+      <div className="sm:hidden m-7 py-8 bg-bg-primary/50 backdrop-blur-2xl p-3 rounded-md absolute top-20 flex flex-col items-center">
+        <MonitorIcon className="text-text-primary size-20 rounded-xl p-4 border-4 border-border-secondary bg-bg-tertiary/50 object-cover mb-8" />
+        <p className="flex-1 text-lg text-center font-roboto text-text-primary mb-2">
+          This Portfolio is designed for desktop screen only.
+        </p>
+        <p className="flex-1 text-sm text-center font-roboto text-text-secondary">
+          View on a larger screen for the best experience.
         </p>
       </div>
     </section>
