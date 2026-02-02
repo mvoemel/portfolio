@@ -264,30 +264,60 @@ const projectsFolder = d(
 const otherFolder = d(
   "Other",
   [
-    // TODO: delete
-    // f(
-    //   "resume.pdf",
-    //   {
-    //     type: "pdf",
-    //     src: "/files/resume.pdf",
-    //   },
-    //   { enableDownload: true },
-    // ),
     d("About this portfolio", [
-      f("techstack.png", {
-        type: "image",
-        src: "/images/portfolio-techstack.png",
-      }),
       f("codebase.url", {
         type: "link",
         href: "https://github.com/mvoemel/portfolio",
       }),
+      f("techstack.png", {
+        type: "image",
+        src: "/images/portfolio-techstack.png",
+      }),
+      f(
+        "visual-concept.png",
+        {
+          type: "image",
+          src: "/images/portfolio-visual-concept.png",
+        },
+        { enableDownload: true },
+      ),
       f("changelog.md", { type: "text", content: changelog }),
     ]),
     d(
       "Certifications",
       [
-        // TODO
+        f(
+          "codecademy-aspnet.pdf",
+          {
+            type: "pdf",
+            src: "/files/codecademy-aspnet.pdf",
+          },
+          { enableDownload: true },
+        ),
+        f(
+          "codecademy-securing-express-apps.pdf",
+          {
+            type: "pdf",
+            src: "/files/codecademy-securing-express-apps.pdf",
+          },
+          { enableDownload: true },
+        ),
+        f(
+          "codecademy-vuejs.pdf",
+          {
+            type: "pdf",
+            src: "/files/codecademy-vuejs.pdf",
+          },
+          { enableDownload: true },
+        ),
+        f(
+          "udemy-microservices.pdf",
+          {
+            type: "pdf",
+            src: "/files/udemy-microservices.pdf",
+          },
+          { enableDownload: true },
+        ),
       ],
       { finderIcon: BadgeCheckIcon },
     ),

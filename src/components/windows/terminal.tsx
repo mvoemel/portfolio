@@ -196,10 +196,8 @@ function Terminal() {
           } else {
             if (fileToOpen.meta.type === "link") {
               window.open(fileToOpen.meta.href, "_blank");
-              newLog.push({ type: "output", content: `Opening ${arg}...` });
             } else {
               openWindow("preview", fileToOpen);
-              newLog.push({ type: "output", content: `Opening ${arg}...` });
             }
           }
         } else {

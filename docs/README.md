@@ -62,14 +62,6 @@ docker-compose -f docker-compose.yml up -d
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Visual Concept
-
-Here is the visual concept before the app was developed. It could have some differences to the finfished product.
-
-![visual concept](./assets/visual-concept.png)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 [TypeScript]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
 [React]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [Vite]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white
