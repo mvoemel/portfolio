@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --font-georama: "Georama", sans-serif;
   --font-roboto: "Roboto Mono", monospace;

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { useWindowStore } from "@/stores/window-store";
 import { useFinderStore } from "@/stores/finder-store";
 import { useSpotlightStore } from "@/stores/spotlight-store";
-import { fileSystemRoot, findItemById } from "@/lib/file-system";
+import { fileSystemRoot, findItemById } from "@/lib/constants";
 import type { FileSystemItem, FolderItem } from "@/lib/types";
 
 import { WindowWrapper } from "./window-wrapper";

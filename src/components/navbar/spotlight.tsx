@@ -4,7 +4,7 @@ import { SearchIcon } from "lucide-react";
 import { useFinderStore } from "@/stores/finder-store";
 import { useWindowStore } from "@/stores/window-store";
 import { useSpotlightStore } from "@/stores/spotlight-store";
-import { fileSystemRoot } from "@/lib/file-system";
+import { fileSystemRoot } from "@/lib/constants";
 import type { FileSystemItem } from "@/lib/types";
 import { cn } from "@/lib/util";
 

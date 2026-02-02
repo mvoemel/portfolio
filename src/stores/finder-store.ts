@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { fileSystemRoot } from "@/lib/file-system";
+import { fileSystemRoot } from "@/lib/constants";
 
 interface FinderStore {
   currentDirectoryId: string;

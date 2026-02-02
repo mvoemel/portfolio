@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { useWindowStore } from "@/stores/window-store";
-import { fileSystemRoot } from "@/lib/file-system";
+import { fileSystemRoot } from "@/lib/constants";
 import type { FolderItem } from "@/lib/types";
 
 import { WindowWrapper } from "./window-wrapper";

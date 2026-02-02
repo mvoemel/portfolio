@@ -58,7 +58,7 @@ function Preview() {
 
     if (meta.type === "text" && extension === "md") {
       return (
-        <div className="p-6 prose prose-sm max-w-none dark:prose-invert overflow-y-auto h-full bg-bg-primary text-text-primary">
+        <div className="p-6 prose dark:prose-invert max-w-none overflow-y-auto h-full bg-bg-primary text-text-primary">
           <ReactMarkdown>{meta.content}</ReactMarkdown>
         </div>
       );

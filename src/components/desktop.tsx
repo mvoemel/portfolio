@@ -1,4 +1,4 @@
-import { fileSystemRoot } from "@/lib/file-system";
+import { fileSystemRoot } from "@/lib/constants";
 import type { FileSystemItem, FolderItem } from "@/lib/types";
 import { useFinderStore } from "@/stores/finder-store";
 import { useWindowStore } from "@/stores/window-store";
@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
 import { Draggable } from "gsap/all";
 
+// TODO: refactor
 export function Desktop() {
   const { changeDirectory } = useFinderStore();
   const { openWindow } = useWindowStore();

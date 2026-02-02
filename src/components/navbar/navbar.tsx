@@ -3,9 +3,13 @@ import { useEffect, useState } from "react";
 import { useFinderStore } from "@/stores/finder-store";
 import { useWindowStore } from "@/stores/window-store";
 import { useSpotlightStore } from "@/stores/spotlight-store";
-import { navLinks, navIcons, navSystemDropdown } from "@/lib/constants";
+import {
+  navLinks,
+  navIcons,
+  navSystemDropdown,
+  findItemByPath,
+} from "@/lib/constants";
 import type { NavLinkItem } from "@/lib/types";
-import { findItemByPath } from "@/lib/file-system";
 import { cn } from "@/lib/util";
 
 import { Clock } from "./clock";
