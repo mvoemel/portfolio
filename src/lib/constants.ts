@@ -496,10 +496,12 @@ export const safariLinks: SafariLinkGroup[] = [
       },
       {
         name: "Github",
+        icon: "https://www.google.com/s2/favicons?domain=github.com&sz=64",
         href: "https://github.com/mvoemel",
       },
       {
         name: "LinkedIn",
+        icon: "https://www.google.com/s2/favicons?domain=linkedin.com&sz=64",
         href: "https://linkedin.com/in/mvoemel",
       },
     ],
@@ -508,12 +510,19 @@ export const safariLinks: SafariLinkGroup[] = [
     title: "Companies I have worked with",
     links: [
       {
+        name: "Titanion",
+        icon: "https://titanion.ch/favicon.ico",
+        href: "https://titanion.ch",
+      },
+      {
         name: "Microshield",
+        icon: "https://microshield.ch/images/favicon.png",
         href: "https://microshield.ch",
       },
       {
-        name: "Titanion",
-        href: "https://titanion.ch",
+        name: "EPS Software Engineering",
+        icon: "https://www.eps.ch/favicon.ico",
+        href: "https://www.eps.ch",
       },
     ],
   },
@@ -529,61 +538,51 @@ export const contactCards: ContactCard[] = [
   },
 ];
 
+/*
+Afghanistan,Angola,Albania,United Arab Emirates,Argentina,Armenia,Antarctica,French Southern and Antarctic Lands,Australia,Austria,Azerbaijan,Burundi,Belgium,Benin,Burkina Faso,Bangladesh,Bulgaria,The Bahamas,Bosnia and Herzegovina,Belarus,Belize,Bolivia,Brazil,Brunei,Bhutan,Botswana,Central African Republic,Canada,Switzerland,Chile,China,Ivory Coast,Cameroon,Democratic Republic of the Congo,Republic of the Congo,Colombia,Costa Rica,Cuba,Northern Cyprus,Cyprus,Czech Republic,Germany,Djibouti,Denmark,Dominican Republic,Algeria,Ecuador,Egypt,Eritrea,Spain,Estonia,Ethiopia,Finland,Fiji,Falkland Islands,France,Gabon,England,Georgia,Ghana,Guinea,Gambia,Guinea Bissau,Equatorial Guinea,Greece,Greenland,Guatemala,Guyana,Honduras,Croatia,Haiti,Hungary,Indonesia,India,Ireland,Iran,Iraq,Iceland,Israel,Italy,Jamaica,Jordan,Japan,Kazakhstan,Kenya,Kyrgyzstan,Cambodia,South Korea,Kosovo,Kuwait,Laos,Lebanon,Liberia,Libya,Sri Lanka,Lesotho,Lithuania,Luxembourg,Latvia,Morocco,Moldova,Madagascar,Mexico,Macedonia,Mali,Myanmar,Montenegro,Mongolia,Mozambique,Mauritania,Malawi,Malaysia,Namibia,New Caledonia,Niger,Nigeria,Nicaragua,Netherlands,Norway,Nepal,New Zealand,Oman,Pakistan,Panama,Peru,Philippines,Papua New Guinea,Poland,Puerto Rico,North Korea,Portugal,Paraguay,Qatar,Romania,Russia,Rwanda,Western Sahara,Saudi Arabia,Sudan,South Sudan,Senegal,Solomon Islands,Sierra Leone,El Salvador,Somaliland,Somalia,Republic of Serbia,Suriname,Slovakia,Slovenia,Sweden,Swaziland,Syria,Chad,Togo,Thailand,Tajikistan,Turkmenistan,East Timor,Trinidad and Tobago,Tunisia,Turkey,Taiwan,United Republic of Tanzania,Uganda,Ukraine,Uruguay,USA,Uzbekistan,Venezuela,Vietnam,Vanuatu,West Bank,Yemen,South Africa,Zambia,Zimbabwe
+*/
+
 export const visitedCountries = [
   // North America
-  "United States",
   "Canada",
-  "Mexico",
+  // "USA",
+
   // Europe (Western/Central/Northern)
   "Switzerland",
   "Germany",
   "France",
-  "United Kingdom",
-  "Ireland",
+  "England",
   "Netherlands",
   "Belgium",
   "Luxembourg",
   "Austria",
   "Liechtenstein",
-  "Czechia",
-  "Slovakia",
-  "Hungary",
+  "Czech Republic",
   "Poland",
+
   // Scandinavia / Baltic
   "Denmark",
-  "Norway",
   "Sweden",
   "Finland",
-  "Iceland",
   "Estonia",
   "Latvia",
   "Lithuania",
+
   // Mediterranean / Southern Europe
   "Portugal",
   "Spain",
   "Italy",
-  "Greece",
-  "Malta",
-  "Cyprus",
+  // "Greece",
+  // "Malta",
+  // "Cyprus",
   "Turkey",
   "Slovenia",
   "Croatia",
-  "Bosnia and Herzegovina",
-  "Montenegro",
-  "Albania",
-  "Serbia",
-  "North Macedonia",
+
   // Eastern Europe / Russia
   "Russia",
-  "Ukraine",
-  "Belarus",
-  "Romania",
-  "Bulgaria",
-  "Moldova",
+
   // North Africa
   "Morocco",
-  "Algeria",
-  "Tunisia",
-  "Libya",
   "Egypt",
 ];

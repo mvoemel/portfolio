@@ -72,7 +72,7 @@ function Safari() {
                           <GlobeIcon className="w-8 h-8 text-text-tertiary" />
                         )}
                       </div>
-                      <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">
+                      <span className="text-sm font-medium text-center text-text-secondary group-hover:text-text-primary transition-colors">
                         {link.name}
                       </span>
                     </a>
