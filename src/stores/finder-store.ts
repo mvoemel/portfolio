@@ -10,13 +10,18 @@ interface FinderStore {
   changeDirectory: (id: string) => void;
   goBack: () => void;
   goForward: () => void;
+  reset: () => void;
 }
+
+const initialState = {
+  currentDirectoryId: fileSystemRoot.id,
+  history: [fileSystemRoot.id],
+  historyIndex: 0,
+};
 
 export const useFinderStore = create<FinderStore>()(
   immer((set) => ({
-    currentDirectoryId: fileSystemRoot.id,
-    history: [fileSystemRoot.id],
-    historyIndex: 0,
+    ...initialState,
 
     changeDirectory: (id) =>
       set((state) => {
@@ -45,6 +50,13 @@ export const useFinderStore = create<FinderStore>()(
           state.historyIndex++;
           state.currentDirectoryId = state.history[state.historyIndex];
         }
+      }),
+
+    reset: () =>
+      set((state) => {
+        state.currentDirectoryId = initialState.currentDirectoryId;
+        state.history = initialState.history;
+        state.historyIndex = initialState.historyIndex;
       }),
   })),
 );

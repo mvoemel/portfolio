@@ -34,7 +34,7 @@ import studyflowDesc from "../assets/projects/studyflow-description.md?raw";
 import websiteBuilderDesc from "../assets/projects/website-builder-description.md?raw";
 import changelog from "../assets/other/changelog.md?raw";
 
-const iconsSrc = {
+export const iconsSrc = {
   apps: {
     contacts: "/icons/apps/contacts-app.png",
     finder: "/icons/apps/finder-app.png",
@@ -476,12 +476,6 @@ export const dockApps: DockApp[] = [
     tooltip: "Terminal",
     icon: iconsSrc.apps.terminal,
     canOpen: true,
-  },
-  {
-    type: "finder",
-    tooltip: "Archive",
-    icon: iconsSrc.folders.trash,
-    canOpen: false,
   },
 ];
 

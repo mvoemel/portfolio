@@ -1,12 +1,12 @@
-import { fileSystemRoot } from "@/lib/constants";
-import type { FileSystemItem, FolderItem } from "@/lib/types";
-import { useFinderStore } from "@/stores/finder-store";
-import { useWindowStore } from "@/stores/window-store";
 import { useGSAP } from "@gsap/react";
-import clsx from "clsx";
 import { Draggable } from "gsap/all";
 
-// TODO: refactor
+import { useFinderStore } from "@/stores/finder-store";
+import { useWindowStore } from "@/stores/window-store";
+import { fileSystemRoot } from "@/lib/constants";
+import type { FileSystemItem, FolderItem } from "@/lib/types";
+import { cn } from "@/lib/util";
+
 export function Desktop() {
   const { changeDirectory } = useFinderStore();
   const { openWindow } = useWindowStore();
@@ -37,7 +37,7 @@ export function Desktop() {
         {projectsFolder.children.map((project) => (
           <li
             key={project.id}
-            className={clsx(
+            className={cn(
               "absolute z-0 select-none flex items-center flex-col size-24",
               "group folder",
               project.windowPosition,

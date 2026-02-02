@@ -15,7 +15,7 @@ export function WindowWrapper<P extends object>(
 ) {
   const Wrapped = (props: P) => {
     const { focusWindow, windows } = useWindowStore();
-    const { isOpen, zIndex } = windows[windowKey];
+    const { isOpen, isMinimized, zIndex } = windows[windowKey];
     const ref = useRef<HTMLDivElement | null>(null);
 
     const handleFocus = () => {
@@ -53,8 +53,8 @@ export function WindowWrapper<P extends object>(
       const el = ref.current;
       if (!el) return;
 
-      el.style.display = isOpen ? "block" : "none";
-    }, [isOpen]);
+      el.style.display = isOpen && !isMinimized ? "block" : "none";
+    }, [isOpen, isMinimized]);
 
     return (
       <section

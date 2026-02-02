@@ -14,6 +14,7 @@ import {
   SafariWindow,
   TerminalWindow,
 } from "./components/windows";
+import { Debug } from "./components/debug";
 
 gsap.registerPlugin(Draggable);
 
@@ -32,6 +33,8 @@ export default function App() {
         <SafariWindow />
         <ContactWindow />
         <MapsWindow />
+
+        <Debug />
       </main>
     </ThemeProvider>
   );

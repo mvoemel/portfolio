@@ -4,12 +4,12 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import { useWindowStore } from "@/stores/window-store";
-import { dockApps } from "@/lib/constants";
+import { dockApps, iconsSrc } from "@/lib/constants";
 import { cn } from "@/lib/util";
+import type { WindowType } from "@/lib/types";
 
-// TODO: implement point beneath app if open
 export function Dock() {
-  const { toggleWindow } = useWindowStore();
+  const { windows, toggleWindow } = useWindowStore();
   const dockRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
@@ -70,11 +70,26 @@ export function Dock() {
         ref={dockRef}
         className="bg-dock-bg border-dock-border backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5"
       >
-        {dockApps.map(({ type, tooltip, icon, canOpen }) => (
-          <div key={type} className="relative flex justify-center">
+        {[
+          ...dockApps,
+          // TODO: refactor
+          {
+            type: "trash" as WindowType,
+            tooltip: "Trash",
+            icon: iconsSrc.folders.trash,
+            canOpen: false,
+          },
+        ].map(({ type, tooltip, icon, canOpen }) => (
+          <div
+            key={`${type}-${tooltip}`}
+            className="relative flex flex-col justify-center items-center"
+          >
             <button
               type="button"
-              className="dock-icon size-14 3xl:size-20 cursor-pointer"
+              className={cn(
+                "dock-icon size-14 3xl:size-20 cursor-pointer",
+                !canOpen && "opacity-50",
+              )}
               aria-label={tooltip}
               data-tooltip-id="dock-tooltip"
               data-tooltip-content={tooltip}
@@ -92,6 +107,14 @@ export function Dock() {
                 )}
               />
             </button>
+
+            <div
+              className={cn(
+                "size-1 rounded-full",
+                (windows[type]?.isMinimized || windows[type]?.isOpen) &&
+                  "bg-text-tertiary",
+              )}
+            />
           </div>
         ))}
 
