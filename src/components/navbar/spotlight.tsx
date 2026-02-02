@@ -1,24 +1,23 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { SearchIcon } from "lucide-react";
+import { SearchIcon, FileIcon, FolderIcon } from "lucide-react";
 
 import { useFinderStore } from "@/stores/finder-store";
 import { useWindowStore } from "@/stores/window-store";
 import { useSpotlightStore } from "@/stores/spotlight-store";
-import { fileSystemRoot } from "@/lib/constants";
-import type { FileSystemItem } from "@/lib/types";
+import { dockApps, fileSystemRoot } from "@/lib/constants";
+import type { FileSystemItem, SpotlightResult } from "@/lib/types";
 import { cn } from "@/lib/util";
 
-const getAllItems = (item: FileSystemItem): FileSystemItem[] => {
+const getAllFiles = (item: FileSystemItem): FileSystemItem[] => {
   let items: FileSystemItem[] = [item];
   if (item.kind === "folder" && item.children) {
     item.children.forEach((child) => {
-      items = items.concat(getAllItems(child));
+      items = items.concat(getAllFiles(child));
     });
   }
   return items;
 };
 
-// TODO: add also applications
 export function Spotlight() {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,17 +25,53 @@ export function Spotlight() {
 
   const { openWindow } = useWindowStore();
   const { changeDirectory } = useFinderStore();
-
   const { isOpen, closeSpotlight } = useSpotlightStore();
 
-  const allItems = useMemo(() => getAllItems(fileSystemRoot), []);
+  const searchableItems = useMemo<SpotlightResult[]>(() => {
+    const appResults: SpotlightResult[] = dockApps.map((app) => ({
+      id: `app-${app.type}`,
+      name: app.name,
+      typeLabel: "Application",
+      icon: app.icon,
+      onSelect: () => {
+        openWindow(app.type);
+        closeSpotlight();
+      },
+    }));
+
+    const fileResults: SpotlightResult[] = getAllFiles(fileSystemRoot).map(
+      (item) => {
+        const isFolder = item.kind === "folder";
+
+        return {
+          id: item.id,
+          name: item.name,
+          typeLabel: isFolder ? "Folder" : item.extension.toUpperCase(),
+          icon: item.icon,
+          fallbackIcon: isFolder ? FolderIcon : FileIcon,
+          onSelect: () => {
+            if (isFolder) {
+              changeDirectory(item.id);
+              openWindow("finder");
+            } else {
+              openWindow("preview", item);
+            }
+            closeSpotlight();
+          },
+        };
+      },
+    );
+
+    return [...appResults, ...fileResults];
+  }, [openWindow, changeDirectory, closeSpotlight]);
 
   const filteredItems = useMemo(() => {
     if (query.trim() === "") return [];
-    return allItems
+
+    return searchableItems
       .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 10);
-  }, [query, allItems]);
+      .slice(0, 10); // Limit results for performance
+  }, [query, searchableItems]);
 
   useEffect(() => {
     if (isOpen) {
@@ -61,16 +96,6 @@ export function Spotlight() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, closeSpotlight]);
 
-  const handleSelect = (item: FileSystemItem) => {
-    if (item.kind === "folder") {
-      changeDirectory(item.id);
-      openWindow("finder");
-    } else {
-      openWindow("preview", item);
-    }
-    closeSpotlight();
-  };
-
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") {
       closeSpotlight();
@@ -79,7 +104,7 @@ export function Spotlight() {
     if (e.key === "Enter") {
       e.preventDefault();
       if (filteredItems.length > 0) {
-        handleSelect(filteredItems[0]);
+        filteredItems[0].onSelect();
       }
     }
   };
@@ -91,12 +116,13 @@ export function Spotlight() {
       <div
         className="fixed inset-0 backdrop-brightness-75 transition-opacity"
         aria-hidden="true"
+        onClick={closeSpotlight}
       />
 
       <div
         ref={containerRef}
         className={cn(
-          "relative w-150 bg-control-bg backdrop-blur-2xl rounded-xl shadow-2xl border border-border-secondary overflow-hidden transform transition-all",
+          "relative w-150 bg-control-bg/80 backdrop-blur-2xl rounded-xl shadow-2xl border border-border-primary overflow-hidden transform transition-all duration-200 ease-out",
           isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95",
         )}
       >
@@ -114,34 +140,50 @@ export function Spotlight() {
         </div>
 
         {filteredItems.length > 0 && (
-          <ul className="py-2 max-h-[60vh] overflow-y-auto">
-            {filteredItems.map((item, index) => (
-              <li
-                key={item.id}
-                onClick={() => handleSelect(item)}
-                className={cn(
-                  "px-4 py-2 cursor-pointer flex items-center gap-3 transition-colors group rounded-lg",
-                  index === 0
-                    ? "bg-primary text-text-primary"
-                    : "hover:bg-primary-hover hover:text-text-primary",
-                )}
-              >
-                {item.icon && (
-                  <img src={item.icon} alt={item.name} className="size-6" />
-                )}
-                <span className="text-lg truncate">{item.name}</span>
-                <span
+          <ul className="py-2 max-h-[60vh] overflow-y-auto scrollbar-hide">
+            {filteredItems.map((item, index) => {
+              const IconComponent = item.fallbackIcon;
+
+              return (
+                <li
+                  key={item.id}
+                  onClick={item.onSelect}
                   className={cn(
-                    "ml-auto text-xs opacity-60",
+                    "mx-2 px-3 py-2 cursor-pointer flex items-center gap-3 transition-colors rounded-md group",
                     index === 0
-                      ? "text-text-primary"
-                      : "text-text-secondary group-hover:text-text-primary",
+                      ? "bg-primary text-text-primary"
+                      : "hover:bg-primary-hover hover:text-text-primary",
                   )}
                 >
-                  {item.kind}
-                </span>
-              </li>
-            ))}
+                  {item.icon ? (
+                    <img
+                      src={item.icon}
+                      alt={item.name}
+                      className="size-7 object-contain"
+                    />
+                  ) : (
+                    IconComponent && (
+                      <IconComponent className="size-7 opacity-80" />
+                    )
+                  )}
+
+                  <span className="text-base truncate font-normal leading-none">
+                    {item.name}
+                  </span>
+
+                  <span
+                    className={cn(
+                      "ml-auto text-xs opacity-60",
+                      index === 0
+                        ? "text-text-primary"
+                        : "text-text-secondary group-hover:text-text-primary",
+                    )}
+                  >
+                    {item.typeLabel}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>

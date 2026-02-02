@@ -449,31 +449,31 @@ export const navIcons: NavIconItem[] = [
 export const dockApps: DockApp[] = [
   {
     type: "finder",
-    tooltip: "Portfolio",
+    name: "Finder",
     icon: iconsSrc.apps.finder,
     canOpen: true,
   },
   {
     type: "safari",
-    tooltip: "Links",
+    name: "Safari",
     icon: iconsSrc.apps.safari,
     canOpen: true,
   },
   {
     type: "maps",
-    tooltip: "Map",
+    name: "Maps",
     icon: iconsSrc.apps.maps,
     canOpen: true,
   },
   {
     type: "contacts",
-    tooltip: "Contact",
+    name: "Contacts",
     icon: iconsSrc.apps.contacts,
     canOpen: true,
   },
   {
     type: "terminal",
-    tooltip: "Terminal",
+    name: "Terminal",
     icon: iconsSrc.apps.terminal,
     canOpen: true,
   },

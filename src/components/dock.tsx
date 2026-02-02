@@ -75,13 +75,13 @@ export function Dock() {
           // TODO: refactor
           {
             type: "trash" as WindowType,
-            tooltip: "Trash",
+            name: "Trash",
             icon: iconsSrc.folders.trash,
             canOpen: false,
           },
-        ].map(({ type, tooltip, icon, canOpen }) => (
+        ].map(({ type, name, icon, canOpen }) => (
           <div
-            key={`${type}-${tooltip}`}
+            key={`${type}-${name}`}
             className="relative flex flex-col justify-center items-center"
           >
             <button
@@ -90,16 +90,16 @@ export function Dock() {
                 "dock-icon size-14 3xl:size-20 cursor-pointer",
                 !canOpen && "opacity-50",
               )}
-              aria-label={tooltip}
+              aria-label={name}
               data-tooltip-id="dock-tooltip"
-              data-tooltip-content={tooltip}
+              data-tooltip-content={name}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
               onClick={() => canOpen && toggleWindow(type)}
             >
               <img
                 src={icon}
-                alt={tooltip}
+                alt={name}
                 loading="lazy"
                 className={cn(
                   "object-cover object-center",

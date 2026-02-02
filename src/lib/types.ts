@@ -87,7 +87,7 @@ export type WindowConfig = Record<WindowType, WindowState>;
 
 export type DockApp = {
   type: WindowType;
-  tooltip: string;
+  name: string;
   icon: string;
   canOpen: boolean;
 };
@@ -125,4 +125,13 @@ type GeoFeature = {
 export type GeoFeatureCollection = {
   type: "FeatureCollection";
   features: GeoFeature[];
+};
+
+export type SpotlightResult = {
+  id: string;
+  name: string;
+  typeLabel: string;
+  icon?: string;
+  fallbackIcon?: React.ElementType;
+  onSelect: () => void;
 };
