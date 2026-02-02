@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useFinderStore } from "@/stores/finder-store";
 import { useWindowStore } from "@/stores/window-store";
+import { useSpotlightStore } from "@/stores/spotlight-store";
 import { navLinks, navIcons, navSystemDropdown } from "@/lib/constants";
 import type { NavLinkItem } from "@/lib/types";
 import { findItemByPath } from "@/lib/file-system";
@@ -13,17 +14,17 @@ import { Spotlight } from "./spotlight";
 
 export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [showSpotlight, setShowSpotlight] = useState(false);
   const [showControlCenter, setShowControlCenter] = useState(false);
 
+  const { toggleSpotlight, openSpotlight } = useSpotlightStore();
   const { changeDirectory } = useFinderStore();
-  const { openWindow } = useWindowStore();
+  const { openWindow, closeAllWindows } = useWindowStore();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setShowSpotlight((prev) => !prev);
+        toggleSpotlight();
         setShowControlCenter(false);
         setActiveMenu(null);
       }
@@ -31,26 +32,34 @@ export function Navbar() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [toggleSpotlight]);
 
   const handleOutsideClick = () => {
     setActiveMenu(null);
     setShowControlCenter(false);
   };
 
-  const handleSystemAction = (action: string) => {
+  const handleSystemAction = (action: string, finderPath?: string) => {
     switch (action) {
-      case "href":
-        // TODO: implement
+      case "finder": {
+        if (!finderPath) return;
+
+        const fileItem = findItemByPath(finderPath);
+        if (!fileItem) return;
+
+        changeDirectory(fileItem.id);
+        openWindow("finder");
+
         break;
+      }
       case "clipboard":
         navigator.clipboard.writeText(window.location.href);
         break;
-      case "reset":
-        window.location.reload(); // TODO: close all windows instead of reloading page
-        break;
       case "close":
-        window.close(); // TODO: does not work (only works if script opened the tab)
+        closeAllWindows();
+        break;
+      case "reload":
+        window.location.reload();
         break;
 
       default:
@@ -62,14 +71,17 @@ export function Navbar() {
   };
 
   const handleNavLink = (link: NavLinkItem) => {
-    if (link.type === "link" && link.path) {
+    if (link.type === "dropdown") return;
+
+    if (link.app == "finder" && link.path) {
       const fileItem = findItemByPath(link.path);
       if (!fileItem) return;
 
       changeDirectory(fileItem.id);
-      openWindow(link.app);
-      setActiveMenu(null);
     }
+
+    openWindow(link.app);
+    setActiveMenu(null);
   };
 
   const renderDropdown = (items: NavLinkItem[]) => (
@@ -98,14 +110,17 @@ export function Navbar() {
         <div className="fixed inset-0 z-40" onClick={handleOutsideClick} />
       )}
 
-      <nav className="relative z-1000 flex justify-between items-center bg-menubar-bg text-text-primary backdrop-blur-xl h-9 px-4 select-none text-sm">
+      <nav className="relative z-2000 flex justify-between items-center bg-menubar-bg text-text-primary backdrop-blur-xl h-9 px-4 select-none text-sm">
         <div className="flex items-center gap-4">
           <div className="relative">
             <button
               onClick={() =>
                 setActiveMenu(activeMenu === "system" ? null : "system")
               }
-              className={`text-lg hover:bg-menubar-hover px-2 rounded ${activeMenu === "system" ? "bg-menubar-active" : ""}`}
+              className={cn(
+                "text-lg hover:bg-menubar-hover px-2 rounded",
+                activeMenu === "system" && "bg-menubar-active",
+              )}
             >
               
             </button>
@@ -115,7 +130,9 @@ export function Navbar() {
                 {navSystemDropdown.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => handleSystemAction(item.action)}
+                    onClick={() =>
+                      handleSystemAction(item.action, item.finderPath)
+                    }
                     className="w-full text-left px-4 py-1.5 hover:bg-primary hover:text-text-primary flex items-center gap-2 group rounded-md"
                   >
                     <item.icon
@@ -164,7 +181,7 @@ export function Navbar() {
               <button
                 key={icon.id}
                 onClick={() => {
-                  if (icon.action === "spotlight") setShowSpotlight(true);
+                  if (icon.action === "spotlight") openSpotlight();
                   if (icon.action === "controlcenter")
                     setShowControlCenter(!showControlCenter);
                 }}
@@ -182,10 +199,7 @@ export function Navbar() {
         </div>
 
         <ControlCenter isOpen={showControlCenter} />
-        <Spotlight
-          isOpen={showSpotlight}
-          onClose={() => setShowSpotlight(false)}
-        />
+        <Spotlight />
       </nav>
     </>
   );

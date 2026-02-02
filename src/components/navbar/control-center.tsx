@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Volume2Icon,
   MaximizeIcon,
@@ -9,18 +9,58 @@ import {
 } from "lucide-react";
 
 import { useThemeStore } from "@/stores/theme-store";
+import { cn } from "@/lib/util";
 
 type ControlCenterProps = { isOpen: boolean };
 
 export function ControlCenter({ isOpen }: ControlCenterProps) {
   const { theme, toggleTheme } = useThemeStore();
 
-  // TODO: implement
   const [brightness, setBrightness] = useState(100);
-  // TODO: implement
-  const [volume, setVolume] = useState(75);
-  // TODO: implement
+  const [volume, setVolume] = useState(50);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/audio/xenogenesis-thefatrat.mp3");
+    audioRef.current.loop = true;
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.play().catch((e) => {
+        console.error("Audio play failed:", e);
+        setIsPlaying(false);
+      });
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume / 100;
+    }
+  }, [volume]);
+
+  useEffect(() => {
+    const safeBrightness = Math.max(10, brightness);
+    document.documentElement.style.filter = `brightness(${safeBrightness}%)`;
+
+    return () => {
+      document.documentElement.style.filter = "none";
+    };
+  }, [brightness]);
 
   const toggleFullscreen = async () => {
     try {
@@ -34,10 +74,15 @@ export function ControlCenter({ isOpen }: ControlCenterProps) {
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="absolute top-12 right-2 w-80 bg-control-bg backdrop-blur-2xl rounded-2xl border border-border-primary shadow-2xl p-4 flex flex-col gap-4 z-50 animate-in fade-in zoom-in-95 duration-200">
+    <div
+      className={cn(
+        "absolute top-12 right-2 w-80 bg-control-bg backdrop-blur-2xl rounded-2xl border border-border-primary shadow-2xl p-4 flex flex-col gap-4 z-50 animate-in fade-in zoom-in-95 duration-200",
+        isOpen
+          ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 scale-95 -translate-y-4 pointer-events-none",
+      )}
+    >
       <div className="grid grid-cols-2 gap-4">
         <button
           className="flex items-center gap-3 p-3 bg-control-card hover:bg-control-card-hover transition-colors rounded-xl shadow-sm border border-border-secondary"
@@ -99,12 +144,11 @@ export function ControlCenter({ isOpen }: ControlCenterProps) {
       </div>
 
       <div className="bg-control-card p-3 rounded-xl border border-border-secondary shadow-sm flex items-center gap-3">
-        <div className="w-12 h-12 bg-slate-800 rounded-md flex items-center justify-center shrink-0 overflow-hidden relative group">
-          {/* TODO: use actual album cover */}
-          <div className="absolute inset-0 bg-linear-to-br from-indigo-500 to-purple-600" />
-          <PlayIcon
-            size={20}
-            className="text-text-primary relative z-10 opacity-0 group-hover:opacity-100 transition-opacity"
+        <div className="size-12 bg-slate-800 rounded-md flex items-center justify-center shrink-0 overflow-hidden relative group">
+          <img
+            src="/images/xenogenesis-album-cover.jpg"
+            alt="Xenogenesis Album Cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <div className="flex-1 min-w-0">

@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import { useWindowStore } from "@/stores/window-store";
 import { useFinderStore } from "@/stores/finder-store";
+import { useSpotlightStore } from "@/stores/spotlight-store";
 import { fileSystemRoot, findItemById } from "@/lib/file-system";
 import type { FileSystemItem, FolderItem } from "@/lib/types";
 
@@ -10,6 +11,7 @@ import { WindowWrapper } from "./window-wrapper";
 import { WindowControls } from "./window-controls";
 
 function Finder() {
+  const { openSpotlight } = useSpotlightStore();
   const { openWindow } = useWindowStore();
   const {
     currentDirectoryId,
@@ -78,8 +80,7 @@ function Finder() {
 
         <button
           className="flex items-center gap-2 text-text-secondary cursor-pointer"
-          // TODO: implement
-          onClick={() => {}}
+          onClick={openSpotlight}
         >
           <SearchIcon size={16} />
         </button>

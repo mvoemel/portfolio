@@ -3,6 +3,7 @@ import { SearchIcon } from "lucide-react";
 
 import { useFinderStore } from "@/stores/finder-store";
 import { useWindowStore } from "@/stores/window-store";
+import { useSpotlightStore } from "@/stores/spotlight-store";
 import { fileSystemRoot } from "@/lib/file-system";
 import type { FileSystemItem } from "@/lib/types";
 import { cn } from "@/lib/util";
@@ -17,19 +18,16 @@ const getAllItems = (item: FileSystemItem): FileSystemItem[] => {
   return items;
 };
 
-type SpotlightProps = {
-  isOpen: boolean;
-  onClose: () => void;
-};
-
 // TODO: add also applications
-export function Spotlight({ isOpen, onClose }: SpotlightProps) {
+export function Spotlight() {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { openWindow } = useWindowStore();
   const { changeDirectory } = useFinderStore();
+
+  const { isOpen, closeSpotlight } = useSpotlightStore();
 
   const allItems = useMemo(() => getAllItems(fileSystemRoot), []);
 
@@ -56,12 +54,12 @@ export function Spotlight({ isOpen, onClose }: SpotlightProps) {
         containerRef.current &&
         !containerRef.current.contains(event.target as Node)
       ) {
-        onClose();
+        closeSpotlight();
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen, onClose]);
+  }, [isOpen, closeSpotlight]);
 
   const handleSelect = (item: FileSystemItem) => {
     if (item.kind === "folder") {
@@ -70,12 +68,12 @@ export function Spotlight({ isOpen, onClose }: SpotlightProps) {
     } else {
       openWindow("preview", item);
     }
-    onClose();
+    closeSpotlight();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") {
-      onClose();
+      closeSpotlight();
     }
 
     if (e.key === "Enter") {

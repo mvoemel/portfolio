@@ -17,8 +17,6 @@ import {
 
 gsap.registerPlugin(Draggable);
 
-// TODO: maybe rework how preview functions; possiblity to have multiple preview windows open
-
 export default function App() {
   return (
     <ThemeProvider>

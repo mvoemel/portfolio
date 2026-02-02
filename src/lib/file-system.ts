@@ -103,22 +103,22 @@ const projectsFolder = d(
   "Projects",
   [
     d("DropIn", [f("description.md", { type: "text", content: dropinDesc })], {
-      winPos: "top-[2vh] left-5",
+      winPos: "top-7 left-5",
     }),
     d(
       "Studyflow",
       [f("description.md", { type: "text", content: studyflowDesc })],
-      { winPos: "top-[12vh] left-5" },
+      { winPos: "top-37 left-5" },
     ),
     d(
       "MoneyMate",
       [f("description.md", { type: "text", content: moneymateDesc })],
-      { winPos: "top-[22vh] left-5" },
+      { winPos: "top-67 left-5" },
     ),
     d(
       "Website Builder",
       [f("description.md", { type: "text", content: websiteBuilderDesc })],
-      { winPos: "top-[32vh] left-5" },
+      { winPos: "top-97 left-5" },
     ),
   ],
   { finderIcon: ClipboardListIcon },
@@ -138,6 +138,7 @@ const otherFolder = d(
       },
       { enableDownload: true },
     ),
+    d("About this portfolio", []),
   ],
   { finderIcon: CircleEllipsisIcon },
 );

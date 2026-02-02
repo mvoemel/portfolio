@@ -151,5 +151,5 @@ function Maps() {
 export const MapsWindow = WindowWrapper(
   Maps,
   "maps",
-  "w-[50rem] h-[30rem] absolute left-[10vw] top-[10vh] bg-bg-primary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden border border-black/5 dark:border-white/5",
+  "w-[50rem] h-[30rem] absolute left-[10vw] top-[10vh] bg-bg-tertiary rounded-xl shadow-2xl drop-shadow-2xl overflow-hidden border border-black/5 dark:border-white/5",
 );

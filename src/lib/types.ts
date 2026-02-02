@@ -35,7 +35,7 @@ export interface FolderItem extends FileSystemItemBase {
 export type FileSystemItem = FileItem | FolderItem;
 
 export type NavIconItemType = "spotlight" | "controlcenter";
-export type NavSystemItemAction = "href" | "clipboard" | "reset" | "close";
+export type NavSystemItemAction = "finder" | "clipboard" | "close" | "reload";
 
 export interface NavIconItem {
   id: string;
@@ -48,6 +48,7 @@ export interface NavSystemItem {
   name: string;
   icon: LucideIcon;
   action: NavSystemItemAction;
+  finderPath?: string;
 }
 
 export type NavLinkItem =

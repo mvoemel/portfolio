@@ -7,6 +7,7 @@ import { useWindowStore } from "@/stores/window-store";
 import type { WindowType } from "@/lib/types";
 import { cn } from "@/lib/util";
 
+// TODO: fix focus bug; window does not focus if inside click only if header click
 export function WindowWrapper<P extends object>(
   Component: ComponentType<P>,
   windowKey: WindowType,

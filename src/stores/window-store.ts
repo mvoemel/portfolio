@@ -2,13 +2,14 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import type { WindowType, WindowConfig, FileSystemItem } from "@/lib/types";
 
-const INITIAL_Z = 100;
+const INITIAL_Z = 1000;
 
 interface WindowStore {
   windows: WindowConfig;
   nextZIndex: number;
   openWindow: (key: WindowType, data?: FileSystemItem) => void;
   closeWindow: (key: WindowType) => void;
+  closeAllWindows: () => void;
   minimizeWindow: (key: WindowType) => void;
   toggleWindow: (key: WindowType) => void;
   focusWindow: (key: WindowType) => void;
@@ -46,6 +47,19 @@ export const useWindowStore = create<WindowStore>()(
         win.data = undefined;
       }),
 
+    closeAllWindows: () =>
+      set((state) => {
+        Object.keys(state.windows).forEach((key) => {
+          const win = state.windows[key as WindowType];
+          win.isOpen = false;
+          win.isMinimized = false;
+          win.zIndex = INITIAL_Z;
+          win.data = undefined;
+        });
+
+        state.nextZIndex = INITIAL_Z + 1;
+      }),
+
     minimizeWindow: (key) =>
       set((state) => {
         state.windows[key].isMinimized = true;
@@ -61,7 +75,6 @@ export const useWindowStore = create<WindowStore>()(
           win.isMinimized = false;
           win.zIndex = state.nextZIndex++;
         } else {
-          // If already open and focused, minimize it
           win.isMinimized = true;
         }
       }),

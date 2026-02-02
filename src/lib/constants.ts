@@ -17,10 +17,16 @@ import type {
 } from "@/lib/types";
 
 export const navSystemDropdown: NavSystemItem[] = [
-  { id: "1", name: "About this portfolio", icon: InfoIcon, action: "href" },
+  {
+    id: "1",
+    name: "About this portfolio",
+    icon: InfoIcon,
+    action: "finder",
+    finderPath: "Other/About this portfolio",
+  },
   { id: "2", name: "Copy link", icon: CopyIcon, action: "clipboard" },
-  { id: "3", name: "Close all windows", icon: CircleXIcon, action: "reset" },
-  { id: "4", name: "Shut down", icon: PowerIcon, action: "close" },
+  { id: "3", name: "Close all windows", icon: CircleXIcon, action: "close" },
+  { id: "4", name: "Reload tab", icon: PowerIcon, action: "reload" },
 ];
 
 export const navLinks: NavLinkItem[] = [
