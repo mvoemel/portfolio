@@ -490,7 +490,7 @@ export const safariLinks: SafariLinkGroup[] = [
     links: [
       {
         name: "Portfolio",
-        icon: "/favicon.png",
+        icon: "/logo.svg",
         href: "https://michael.voemel.org",
       },
       {

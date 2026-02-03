@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { useWindowStore } from "@/stores/window-store";
+import { useFinderStore } from "@/stores/finder-store";
 import { fileSystemRoot } from "@/lib/constants";
 import type { FolderItem } from "@/lib/types";
 
@@ -13,6 +14,7 @@ type TerminalLine =
 
 function Terminal() {
   const { openWindow, closeWindow } = useWindowStore();
+  const { changeDirectory } = useFinderStore();
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState<TerminalLine[]>([
@@ -188,11 +190,13 @@ function Terminal() {
       }
 
       case "open": {
-        const fileToOpen = currentFolder.children.find((c) => c.name === arg);
+        const fileToOpen = currentFolder.children.find(
+          (c) => c.name.toLowerCase() === arg.toLowerCase(),
+        );
         if (fileToOpen) {
           if (fileToOpen.kind === "folder") {
-            // TODO: open finder with this folder
-            newLog.push({ type: "output", content: `${arg} is a directory.` });
+            changeDirectory(fileToOpen.id);
+            openWindow("finder");
           } else {
             if (fileToOpen.meta.type === "link") {
               window.open(fileToOpen.meta.href, "_blank");

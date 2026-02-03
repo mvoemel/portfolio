@@ -32,7 +32,6 @@ function Safari() {
         <div className="flex items-center gap-3 w-2/3 bg-bg-secondary rounded-lg px-3 py-1.5 transition-colors focus-within:bg-bg-primary border border-transparent focus-within:border-black/5 dark:focus-within:border-white/10">
           <SearchIcon size={14} className="opacity-50" />
 
-          {/* TODO: fix onBlur behaviour */}
           <input
             type="text"
             placeholder="Search or enter website name"
