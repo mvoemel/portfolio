@@ -24,7 +24,6 @@
 <ol>
   <li><a href="#development">Development</a></li>
   <li><a href="#production">Production</a></li>
-  <li><a href="#license">Visual Concept</a></li>
 </ol>
 
 ![TypeScript][TypeScript]
@@ -52,13 +51,9 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 
 ## Production
 
-TODO: implement
-
-Open a terminal in the right directory and create a **docker-compose** stack:
-
-```bash
-docker-compose -f docker-compose.yml up -d
-```
+1. Copy the `compose.yml` file.
+2. Run `docker compose up -d`.
+3. To update the version run `docker compose down && docker compose up -d`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

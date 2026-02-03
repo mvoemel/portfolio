@@ -1,0 +1,8 @@
+services:
+  portfolio:
+    image: ghcr.io/mvoemel/portfolio:latest
+    container_name: portfolio
+    pull_policy: always # ensures updates check every time 'up' is run
+    restart: unless-stopped
+    ports:
+      - "3000:80"
