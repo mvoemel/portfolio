@@ -5,4 +5,6 @@ services:
     pull_policy: always # ensures updates check every time 'up' is run
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - '3000:80'
+
+# TODO: add watchtower to automatically deploy new version
