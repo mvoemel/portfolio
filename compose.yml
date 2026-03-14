@@ -7,4 +7,14 @@ services:
     ports:
       - '3000:80'
 
-# TODO: add watchtower to automatically deploy new version
+  watchtower:
+    image: nickfedor/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    command: portfolio
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=300 # sec
+      - WATCHTOWER_CLEANUP=true
+      - TZ=UTC

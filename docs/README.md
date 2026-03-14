@@ -53,7 +53,8 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 
 1. Copy the `compose.yml` file.
 2. Run `docker compose up -d`.
-3. To update the version run `docker compose down && docker compose up -d`.
+
+_NOTE: Updates are automatically pulled and deployed using `nickfedor/watchtower`._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
