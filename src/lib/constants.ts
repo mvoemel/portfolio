@@ -502,8 +502,7 @@ export const safariLinks: SafariLinkGroup[] = [
       },
       {
         name: 'Microshield',
-        // TODO: fix favicon fetch url
-        icon: 'https://microshield.ch/images/favicon.png',
+        icon: 'https://microshield.ch/favicon.svg',
         href: 'https://microshield.ch',
       },
       {
