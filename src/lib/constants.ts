@@ -323,11 +323,10 @@ const otherFolder = d(
   { finderIcon: CircleEllipsisIcon },
 )
 
-const archiveFolder = d(
-  'Archive',
-  [f('placeholder.png', { type: 'image', src: '/placeholder.svg' })],
-  { icon: iconsSrc.folders.trash, finderIcon: Trash2Icon },
-)
+const trashFolder = d('Trash', [f('placeholder.png', { type: 'image', src: '/placeholder.svg' })], {
+  icon: iconsSrc.folders.trash,
+  finderIcon: Trash2Icon,
+})
 
 export const fileSystemRoot = d(
   'Home',
@@ -335,7 +334,7 @@ export const fileSystemRoot = d(
     aboutFolder,
     projectsFolder,
     otherFolder,
-    archiveFolder,
+    trashFolder,
     f('morning-routine.java', {
       type: 'code',
       content: javaCode,
