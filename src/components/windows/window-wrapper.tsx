@@ -7,7 +7,6 @@ import { useWindowStore } from '@/stores/window-store'
 import type { WindowType } from '@/lib/types'
 import { cn } from '@/lib/util'
 
-// TODO: fix focus bug; window does not focus if inside click only if header click
 export function WindowWrapper<P extends object>(
   Component: ComponentType<P>,
   windowKey: WindowType,
@@ -44,6 +43,7 @@ export function WindowWrapper<P extends object>(
       const [instance] = Draggable.create(el, {
         trigger: header,
         dragClickables: false,
+        zIndexBoost: false,
       })
 
       return () => instance.kill()
@@ -61,7 +61,7 @@ export function WindowWrapper<P extends object>(
         id={windowKey}
         ref={ref}
         style={{ zIndex }}
-        onMouseDownCapture={handleFocus}
+        onPointerDownCapture={handleFocus}
         className={cn('absolute', className)}
       >
         <Component {...props} />

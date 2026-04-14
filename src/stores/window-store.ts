@@ -1,18 +1,19 @@
-import { create } from "zustand";
-import { immer } from "zustand/middleware/immer";
-import type { WindowType, WindowConfig, FileSystemItem } from "@/lib/types";
+import { create } from 'zustand'
+import { immer } from 'zustand/middleware/immer'
 
-const INITIAL_Z = 1000;
+import type { WindowType, WindowConfig, FileSystemItem } from '@/lib/types'
+
+const INITIAL_Z = 500
 
 interface WindowStore {
-  windows: WindowConfig;
-  nextZIndex: number;
-  openWindow: (key: WindowType, data?: FileSystemItem) => void;
-  closeWindow: (key: WindowType) => void;
-  closeAllWindows: () => void;
-  minimizeWindow: (key: WindowType) => void;
-  toggleWindow: (key: WindowType) => void;
-  focusWindow: (key: WindowType) => void;
+  windows: WindowConfig
+  nextZIndex: number
+  openWindow: (key: WindowType, data?: FileSystemItem) => void
+  closeWindow: (key: WindowType) => void
+  closeAllWindows: () => void
+  minimizeWindow: (key: WindowType) => void
+  toggleWindow: (key: WindowType) => void
+  focusWindow: (key: WindowType) => void
 }
 
 const initialWindows: WindowConfig = {
@@ -22,7 +23,7 @@ const initialWindows: WindowConfig = {
   contacts: { isOpen: false, isMinimized: false, zIndex: INITIAL_Z },
   terminal: { isOpen: false, isMinimized: false, zIndex: INITIAL_Z },
   preview: { isOpen: false, isMinimized: false, zIndex: INITIAL_Z },
-};
+}
 
 export const useWindowStore = create<WindowStore>()(
   immer((set) => ({
@@ -31,60 +32,63 @@ export const useWindowStore = create<WindowStore>()(
 
     openWindow: (key, data) =>
       set((state) => {
-        const win = state.windows[key];
-        win.isOpen = true;
-        win.isMinimized = false;
-        win.zIndex = state.nextZIndex++;
-        if (data) win.data = data;
+        const win = state.windows[key]
+        win.isOpen = true
+        win.isMinimized = false
+        win.zIndex = state.nextZIndex++
+        if (data) win.data = data
       }),
 
     closeWindow: (key) =>
       set((state) => {
-        const win = state.windows[key];
-        win.isOpen = false;
-        win.isMinimized = false;
-        win.zIndex = INITIAL_Z;
-        win.data = undefined;
+        const win = state.windows[key]
+        win.isOpen = false
+        win.isMinimized = false
+        win.zIndex = INITIAL_Z
+        win.data = undefined
       }),
 
     closeAllWindows: () =>
       set((state) => {
         Object.keys(state.windows).forEach((key) => {
-          const win = state.windows[key as WindowType];
-          win.isOpen = false;
-          win.isMinimized = false;
-          win.zIndex = INITIAL_Z;
-          win.data = undefined;
-        });
+          const win = state.windows[key as WindowType]
+          win.isOpen = false
+          win.isMinimized = false
+          win.zIndex = INITIAL_Z
+          win.data = undefined
+        })
 
-        state.nextZIndex = INITIAL_Z + 1;
+        state.nextZIndex = INITIAL_Z + 1
       }),
 
     minimizeWindow: (key) =>
       set((state) => {
-        state.windows[key].isMinimized = true;
+        state.windows[key].isMinimized = true
       }),
 
     toggleWindow: (key) =>
       set((state) => {
-        const win = state.windows[key];
+        const win = state.windows[key]
         if (!win.isOpen) {
-          win.isOpen = true;
-          win.zIndex = state.nextZIndex++;
+          win.isOpen = true
+          win.zIndex = state.nextZIndex++
         } else if (win.isMinimized) {
-          win.isMinimized = false;
-          win.zIndex = state.nextZIndex++;
+          win.isMinimized = false
+          win.zIndex = state.nextZIndex++
         } else {
-          win.isMinimized = true;
+          win.isMinimized = true
         }
       }),
 
     focusWindow: (key) =>
       set((state) => {
-        const win = state.windows[key];
+        const win = state.windows[key]
+
         if (win.isOpen && !win.isMinimized) {
-          win.zIndex = state.nextZIndex++;
+          if (win.zIndex !== state.nextZIndex - 1) {
+            win.zIndex = state.nextZIndex++
+          }
         }
       }),
   })),
-);
+)
