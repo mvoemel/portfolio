@@ -100,7 +100,12 @@ const getIcon = (ext: string) => {
 const f = (
   name: string,
   meta: FileContent,
-  opts?: { enableDownload?: boolean; winPos?: string; icon?: string },
+  opts?: {
+    enableDownload?: boolean
+    windowPosition?: string
+    icon?: string
+    showOnDesktop?: boolean
+  },
 ): FileSystemItem => {
   const extension = name.split('.').pop() || 'txt'
   return {
@@ -110,7 +115,8 @@ const f = (
     extension,
     icon: opts?.icon || getIcon(extension),
     downloadable: opts?.enableDownload,
-    windowPosition: opts?.winPos,
+    windowPosition: opts?.windowPosition,
+    showOnDesktop: opts?.showOnDesktop,
     meta,
   }
 }
@@ -121,7 +127,8 @@ const d = (
   opts?: {
     icon?: string
     finderIcon?: LucideIcon
-    winPos?: string
+    windowPosition?: string
+    showOnDesktop?: boolean
   },
 ): FolderItem => ({
   id: nextId(),
@@ -129,9 +136,14 @@ const d = (
   name,
   icon: opts?.icon || iconsSrc.folders.default,
   finderIcon: opts?.finderIcon,
-  windowPosition: opts?.winPos,
+  windowPosition: opts?.windowPosition,
+  showOnDesktop: opts?.showOnDesktop,
   children,
 })
+
+// TODO: next widnow positions
+// { windowPosition: 'top-67 left-5', showOnDesktop: true },
+// { windowPosition: 'top-97 left-5', showOnDesktop: true },
 
 const javaCode = `public void wakeUp() {
     int snoozesHit = 0;
@@ -151,12 +163,12 @@ const aboutFolder = d(
       type: 'image',
       src: '/images/drivers-license.png',
     }),
-    // TODO: update if applicable
+    // TODO: update if necessary
     f('short-description.txt', {
       type: 'text',
       content: aboutShortDescription,
     }),
-    // TODO: update if applicable
+    // TODO: update if necessary
     f('hobbies.txt', { type: 'text', content: aboutHobbies }),
     // TODO: update
     f('technical-skills.md', { type: 'text', content: aboutTechnicalSkills }),
@@ -189,7 +201,8 @@ const projectsFolder = d(
         }),
       ],
       {
-        winPos: 'top-7 left-5',
+        windowPosition: 'top-7 left-5',
+        showOnDesktop: true,
       },
     ),
     d(
@@ -217,38 +230,30 @@ const projectsFolder = d(
           { enableDownload: true },
         ),
       ],
-      { winPos: 'top-37 left-5' },
+      { windowPosition: 'top-37 left-5', showOnDesktop: true },
     ),
-    d(
-      'MoneyMate',
-      [
-        f('README.md', { type: 'text', content: moneymateDesc }, { icon: iconsSrc.files.readme }),
-        f('codebase.url', {
-          type: 'link',
-          href: 'https://github.com/mvoemel/moneymate',
-        }),
-        f('mock.png', {
-          type: 'image',
-          src: '/images/moneymate-mock.png',
-        }),
-      ],
-      { winPos: 'top-67 left-5' },
-    ),
-    d(
-      'Website Builder',
-      [
-        f(
-          'README.md',
-          { type: 'text', content: websiteBuilderDesc },
-          { icon: iconsSrc.files.readme },
-        ),
-        f('codebase.url', {
-          type: 'link',
-          href: 'https://github.com/mvoemel/website-builder',
-        }),
-      ],
-      { winPos: 'top-97 left-5' },
-    ),
+    d('MoneyMate', [
+      f('README.md', { type: 'text', content: moneymateDesc }, { icon: iconsSrc.files.readme }),
+      f('codebase.url', {
+        type: 'link',
+        href: 'https://github.com/mvoemel/moneymate',
+      }),
+      f('mock.png', {
+        type: 'image',
+        src: '/images/moneymate-mock.png',
+      }),
+    ]),
+    d('Website Builder', [
+      f(
+        'README.md',
+        { type: 'text', content: websiteBuilderDesc },
+        { icon: iconsSrc.files.readme },
+      ),
+      f('codebase.url', {
+        type: 'link',
+        href: 'https://github.com/mvoemel/website-builder',
+      }),
+    ]),
   ],
   { icon: iconsSrc.folders.code, finderIcon: ClipboardListIcon },
 )

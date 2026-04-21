@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { DownloadIcon } from "lucide-react";
+import { DownloadIcon, ExternalLinkIcon } from "lucide-react";
 
 import { useWindowStore } from "@/stores/window-store";
 import type { FileSystemItem } from "@/lib/types";
@@ -30,6 +30,10 @@ function Preview() {
       </div>
     );
   }
+
+  const handleOpenInNewTab = () => {
+    if (file.meta.type === "pdf") window.open(file.meta.src, "_blank");
+  };
 
   const handleDownload = () => {
     if (!file || !file.downloadable) return;
@@ -130,17 +134,29 @@ function Preview() {
           </span>
         </div>
 
-        {file.downloadable && (
-          <button
-            onClick={handleDownload}
-            className="p-1.5 text-text-secondary hover:bg-bg-tertiary rounded transition-colors cursor-pointer"
-            title="Download"
-          >
-            <DownloadIcon size={18} />
-          </button>
-        )}
-
-        {!file.downloadable && <div className="w-4" />}
+        <div className="flex items-center gap-1">
+          {file.meta.type === "pdf" && (
+            <button
+              onClick={handleOpenInNewTab}
+              className="p-1.5 text-text-secondary hover:bg-bg-tertiary rounded transition-colors cursor-pointer"
+              title="Open in New Tab"
+            >
+              <ExternalLinkIcon size={18} />
+            </button>
+          )}
+          {file.downloadable && (
+            <button
+              onClick={handleDownload}
+              className="p-1.5 text-text-secondary hover:bg-bg-tertiary rounded transition-colors cursor-pointer"
+              title="Download"
+            >
+              <DownloadIcon size={18} />
+            </button>
+          )}
+          {file.meta.type !== "pdf" && !file.downloadable && (
+            <div className="w-4" />
+          )}
+        </div>
       </div>
 
       <div className="flex-1 overflow-hidden relative">{renderContent()}</div>

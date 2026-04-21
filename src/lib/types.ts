@@ -15,6 +15,7 @@ interface FileSystemItemBase {
   name: string;
   icon?: string;
   position?: string;
+  showOnDesktop?: boolean;
 }
 
 export interface FileItem extends FileSystemItemBase {
