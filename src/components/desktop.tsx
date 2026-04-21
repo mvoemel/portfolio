@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useGSAP } from '@gsap/react'
 import { Draggable } from 'gsap/all'
 
@@ -33,7 +34,10 @@ export function Desktop() {
     }
   }
 
-  const desktopItems = collectDesktopItems(fileSystemRoot.children)
+  const desktopItems = useMemo(
+    () => collectDesktopItems(fileSystemRoot.children),
+    []
+  )
 
   if (desktopItems.length < 1) return null
 
