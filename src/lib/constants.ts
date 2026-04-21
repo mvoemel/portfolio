@@ -32,6 +32,7 @@ import dropinDesc from '../assets/projects/dropin-description.md?raw'
 import moneymateDesc from '../assets/projects/moneymate-description.md?raw'
 import studyflowDesc from '../assets/projects/studyflow-description.md?raw'
 import websiteBuilderDesc from '../assets/projects/website-builder-description.md?raw'
+import paBscV1Code from '../assets/projects/pa-bsc-v1-code.py?raw'
 import changelog from '../assets/other/changelog.md?raw'
 
 export const iconsSrc = {
@@ -142,7 +143,6 @@ const d = (
 })
 
 // TODO: next widnow positions
-// { windowPosition: 'top-67 left-5', showOnDesktop: true },
 // { windowPosition: 'top-97 left-5', showOnDesktop: true },
 
 const javaCode = `public void wakeUp() {
@@ -183,7 +183,7 @@ const projectsFolder = d(
       'DropIn',
       [
         f('README.md', { type: 'text', content: dropinDesc }, { icon: iconsSrc.files.readme }),
-        f('codebase.url', {
+        f('github.url', {
           type: 'link',
           href: 'https://github.com/PM4-FS25-DropIn/dropin',
         }),
@@ -209,7 +209,7 @@ const projectsFolder = d(
       'Studyflow',
       [
         f('README.md', { type: 'text', content: studyflowDesc }, { icon: iconsSrc.files.readme }),
-        f('codebase.url', {
+        f('github.url', {
           type: 'link',
           href: 'https://github.com/mvoemel/studyflow',
         }),
@@ -232,28 +232,40 @@ const projectsFolder = d(
       ],
       { windowPosition: 'top-37 left-5', showOnDesktop: true },
     ),
-    d('MoneyMate', [
-      f('README.md', { type: 'text', content: moneymateDesc }, { icon: iconsSrc.files.readme }),
-      f('codebase.url', {
-        type: 'link',
-        href: 'https://github.com/mvoemel/moneymate',
-      }),
-      f('mock.png', {
-        type: 'image',
-        src: '/images/moneymate-mock.png',
-      }),
-    ]),
-    d('Website Builder', [
-      f(
-        'README.md',
-        { type: 'text', content: websiteBuilderDesc },
-        { icon: iconsSrc.files.readme },
-      ),
-      f('codebase.url', {
-        type: 'link',
-        href: 'https://github.com/mvoemel/website-builder',
-      }),
-    ]),
+    d(
+      'Project Thesis BSc',
+      [
+        f(
+          'report.pdf',
+          {
+            type: 'pdf',
+            src: '/files/pa-bsc-report.pdf',
+          },
+          { enableDownload: true },
+        ),
+        // TODO: refactor
+        f('sym-cross-att-v1-code.py', {
+          type: 'code',
+          content: paBscV1Code,
+          language: 'py',
+        }),
+        f('metrics-plot.png', {
+          type: 'image',
+          src: '/images/pa_bsc_plot_metrics_best_models.png',
+        }),
+        f('roc-curves.png', {
+          type: 'image',
+          src: '/images/pa_bsc_plot_roc_curves_best_models.png',
+        }),
+        f('tpp-performance.png', {
+          type: 'image',
+          src: '/images/pa_bsc_plot_tpp_performance_best_models.png',
+        }),
+      ],
+      { windowPosition: 'top-67 left-5', showOnDesktop: true },
+    ),
+    // TODO: add
+    // d('Bachelor Thesis', []),
   ],
   { icon: iconsSrc.folders.code, finderIcon: ClipboardListIcon },
 )
@@ -261,8 +273,8 @@ const projectsFolder = d(
 const otherFolder = d(
   'Other',
   [
-    d('About this portfolio', [
-      f('codebase.url', {
+    d('About this Portfolio', [
+      f('github.url', {
         type: 'link',
         href: 'https://github.com/mvoemel/portfolio',
       }),
@@ -322,16 +334,51 @@ const otherFolder = d(
       ],
       { finderIcon: BadgeCheckIcon },
     ),
-    // TODO: add files
-    // d('Theses', [d('Matura Thesis', []), d('Project Thesis BSc', []), d('Bachelor Thesis', [])]),
   ],
   { finderIcon: CircleEllipsisIcon },
 )
 
-const trashFolder = d('Trash', [f('placeholder.png', { type: 'image', src: '/placeholder.svg' })], {
-  icon: iconsSrc.folders.trash,
-  finderIcon: Trash2Icon,
-})
+const trashFolder = d(
+  'Trash',
+  [
+    d('Matura Thesis', [
+      f('github.url', {
+        type: 'link',
+        href: 'https://github.com/mvoemel/maturaarbeit',
+      }),
+      f('venus-earth-conjunction-flower-pattern.webp', {
+        type: 'image',
+        src: '/images/ma-venus-earth-conjunction-flower-pattern.webp',
+      }),
+    ]),
+    d('MoneyMate', [
+      f('README.md', { type: 'text', content: moneymateDesc }, { icon: iconsSrc.files.readme }),
+      f('github.url', {
+        type: 'link',
+        href: 'https://github.com/mvoemel/moneymate',
+      }),
+      f('mock.png', {
+        type: 'image',
+        src: '/images/moneymate-mock.png',
+      }),
+    ]),
+    d('Website Builder', [
+      f(
+        'README.md',
+        { type: 'text', content: websiteBuilderDesc },
+        { icon: iconsSrc.files.readme },
+      ),
+      f('github.url', {
+        type: 'link',
+        href: 'https://github.com/mvoemel/website-builder',
+      }),
+    ]),
+  ],
+  {
+    icon: iconsSrc.folders.trash,
+    finderIcon: Trash2Icon,
+  },
+)
 
 export const fileSystemRoot = d(
   'Home',
@@ -383,16 +430,17 @@ export const findItemByPath = (path: string, root = fileSystemRoot): FileSystemI
 export const navSystemDropdown: NavSystemItem[] = [
   {
     id: '1',
-    name: 'About this portfolio',
+    name: 'About this Portfolio',
     icon: InfoIcon,
     action: 'finder',
-    finderPath: 'Other/About this portfolio',
+    finderPath: 'Other/About this Portfolio',
   },
   { id: '2', name: 'Copy link', icon: CopyIcon, action: 'clipboard' },
   { id: '3', name: 'Close all windows', icon: CircleXIcon, action: 'close' },
   { id: '4', name: 'Reload tab', icon: PowerIcon, action: 'reload' },
 ]
 
+// TODO: refactor
 export const navLinks: NavLinkItem[] = [
   { id: '1', name: 'About', type: 'link', app: 'finder', path: 'About' },
   {
@@ -416,22 +464,22 @@ export const navLinks: NavLinkItem[] = [
         app: 'finder',
         path: 'Projects/Studyflow',
       },
-      {
-        id: '2-3',
-        name: 'MoneyMate',
-        icon: iconsSrc.folders.default,
-        type: 'link',
-        app: 'finder',
-        path: 'Projects/MoneyMate',
-      },
-      {
-        id: '2-4',
-        name: 'Website Builder',
-        icon: iconsSrc.folders.default,
-        type: 'link',
-        app: 'finder',
-        path: 'Projects/Website Builder',
-      },
+      // {
+      //   id: '2-3',
+      //   name: 'MoneyMate',
+      //   icon: iconsSrc.folders.default,
+      //   type: 'link',
+      //   app: 'finder',
+      //   path: 'Projects/MoneyMate',
+      // },
+      // {
+      //   id: '2-4',
+      //   name: 'Website Builder',
+      //   icon: iconsSrc.folders.default,
+      //   type: 'link',
+      //   app: 'finder',
+      //   path: 'Projects/Website Builder',
+      // },
     ],
   },
   { id: '3', name: 'Contact', type: 'link', app: 'contacts' },
