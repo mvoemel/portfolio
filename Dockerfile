@@ -7,6 +7,12 @@ COPY package*.json .
 RUN npm ci
 
 COPY . .
+
+ARG VITE_BUILD_SHA=dev
+ARG VITE_BUILD_DATE=unknown
+ENV VITE_BUILD_SHA=$VITE_BUILD_SHA
+ENV VITE_BUILD_DATE=$VITE_BUILD_DATE
+
 RUN npm run build
 
 # Stage 2 — Serve
