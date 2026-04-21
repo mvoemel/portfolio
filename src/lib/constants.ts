@@ -243,7 +243,10 @@ const projectsFolder = d(
           },
           { enableDownload: true },
         ),
-        // TODO: refactor
+        f('sym-cross-att-v1-arch.png', {
+          type: 'image',
+          src: '/images/pa-bsc-arch-diagram-v1.png',
+        }),
         f('sym-cross-att-v1-code.py', {
           type: 'code',
           content: paBscV1Code,
@@ -251,15 +254,15 @@ const projectsFolder = d(
         }),
         f('metrics-plot.png', {
           type: 'image',
-          src: '/images/pa_bsc_plot_metrics_best_models.png',
+          src: '/images/pa-bsc-plot-metrics-best-models.png',
         }),
         f('roc-curves.png', {
           type: 'image',
-          src: '/images/pa_bsc_plot_roc_curves_best_models.png',
+          src: '/images/pa-bsc-plot-roc-curves-best-models.png',
         }),
         f('tpp-performance.png', {
           type: 'image',
-          src: '/images/pa_bsc_plot_tpp_performance_best_models.png',
+          src: '/images/pa-bsc-plot-tpp-performance-best-models.png',
         }),
       ],
       { windowPosition: 'top-67 left-5', showOnDesktop: true },
@@ -440,47 +443,20 @@ export const navSystemDropdown: NavSystemItem[] = [
   { id: '4', name: 'Reload tab', icon: PowerIcon, action: 'reload' },
 ]
 
-// TODO: refactor
 export const navLinks: NavLinkItem[] = [
   { id: '1', name: 'About', type: 'link', app: 'finder', path: 'About' },
   {
     id: '2',
     name: 'Projects',
     type: 'dropdown',
-    children: [
-      {
-        id: '2-1',
-        name: 'DropIn',
-        icon: iconsSrc.folders.default,
-        type: 'link',
-        app: 'finder',
-        path: 'Projects/DropIn',
-      },
-      {
-        id: '2-2',
-        name: 'Studyflow',
-        icon: iconsSrc.folders.default,
-        type: 'link',
-        app: 'finder',
-        path: 'Projects/Studyflow',
-      },
-      // {
-      //   id: '2-3',
-      //   name: 'MoneyMate',
-      //   icon: iconsSrc.folders.default,
-      //   type: 'link',
-      //   app: 'finder',
-      //   path: 'Projects/MoneyMate',
-      // },
-      // {
-      //   id: '2-4',
-      //   name: 'Website Builder',
-      //   icon: iconsSrc.folders.default,
-      //   type: 'link',
-      //   app: 'finder',
-      //   path: 'Projects/Website Builder',
-      // },
-    ],
+    children: projectsFolder.children.map((child, index) => ({
+      id: `2-${index + 1}`,
+      name: child.name,
+      icon: iconsSrc.folders.default,
+      type: 'link' as const,
+      app: 'finder' as const,
+      path: `Projects/${child.name}`,
+    })),
   },
   { id: '3', name: 'Contact', type: 'link', app: 'contacts' },
 ]

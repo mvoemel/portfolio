@@ -200,10 +200,11 @@ function Terminal() {
         break
       }
 
+      // BUG: VITE_BUILD_DATE is not correctly displayed
       case 'uname':
         newLog.push({
           type: 'output',
-          content: `portfolio ${version} (${(import.meta.env.VITE_BUILD_SHA ?? 'dev').slice(0, 7)}, ${(import.meta.env.VITE_BUILD_DATE ?? 'unknown').slice(0, 10)})`,
+          content: `portfolio ${version} (${(import.meta.env.VITE_BUILD_SHA || 'dev').slice(0, 7)}, ${(import.meta.env.VITE_BUILD_DATE || 'unknown').slice(0, 10)})`,
         })
         break
 
