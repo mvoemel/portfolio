@@ -142,9 +142,6 @@ const d = (
   children,
 })
 
-// TODO: next widnow positions
-// { windowPosition: 'top-97 left-5', showOnDesktop: true },
-
 const javaCode = `public void wakeUp() {
     int snoozesHit = 0;
     while (snoozesHit < 5) {
@@ -157,28 +154,71 @@ const javaCode = `public void wakeUp() {
 const aboutFolder = d(
   'About',
   [
-    f('portfolio.url', { type: 'link', href: 'https://michael.voemel.org' }),
     f('me.png', { type: 'image', src: '/images/profile-pic-comic.png' }),
-    f('drivers-license.png', {
-      type: 'image',
-      src: '/images/drivers-license.png',
-    }),
-    // TODO: update if necessary
     f('short-description.txt', {
       type: 'text',
       content: aboutShortDescription,
     }),
-    // TODO: update if necessary
     f('hobbies.txt', { type: 'text', content: aboutHobbies }),
-    // TODO: update
     f('technical-skills.md', { type: 'text', content: aboutTechnicalSkills }),
   ],
   { finderIcon: InfoIcon },
 )
 
+// windowPosition -> 'top-7 left-5','top-37 left-5', 'top-67 left-5', 'top-97 left-5', etc.
 const projectsFolder = d(
   'Projects',
   [
+    // TODO: add
+    d(
+      'Bachelor Thesis',
+      [
+        f('TBA.txt', {
+          type: 'text',
+          content: 'TBA',
+        }),
+      ],
+      { windowPosition: 'top-7 left-5', showOnDesktop: true },
+    ),
+    d(
+      'Project Thesis BSc',
+      [
+        f(
+          'report.pdf',
+          {
+            type: 'pdf',
+            src: '/files/pa-bsc-report.pdf',
+          },
+          { enableDownload: true },
+        ),
+        f(
+          'sym-cross-att-v1-arch.png',
+          {
+            type: 'image',
+            src: '/images/pa-bsc-arch-diagram-v1.png',
+          },
+          { enableDownload: true },
+        ),
+        f('sym-cross-att-v1-code.py', {
+          type: 'code',
+          content: paBscV1Code,
+          language: 'py',
+        }),
+        f('metrics-plot.png', {
+          type: 'image',
+          src: '/images/pa-bsc-plot-metrics-best-models.png',
+        }),
+        f('roc-curves.png', {
+          type: 'image',
+          src: '/images/pa-bsc-plot-roc-curves-best-models.png',
+        }),
+        f('tpp-performance.png', {
+          type: 'image',
+          src: '/images/pa-bsc-plot-tpp-performance-best-models.png',
+        }),
+      ],
+      { windowPosition: 'top-37 left-5', showOnDesktop: true },
+    ),
     d(
       'DropIn',
       [
@@ -187,7 +227,7 @@ const projectsFolder = d(
           type: 'link',
           href: 'https://github.com/PM4-FS25-DropIn/dropin',
         }),
-        f('introduction.url', {
+        f('intro-video.url', {
           type: 'link',
           href: 'https://www.youtube.com/watch?v=wciM1h03AWg',
         }),
@@ -200,10 +240,7 @@ const projectsFolder = d(
           src: '/images/dropin-mockup-map.png',
         }),
       ],
-      {
-        windowPosition: 'top-7 left-5',
-        showOnDesktop: true,
-      },
+      { windowPosition: 'top-67 left-5', showOnDesktop: true },
     ),
     d(
       'Studyflow',
@@ -230,45 +267,8 @@ const projectsFolder = d(
           { enableDownload: true },
         ),
       ],
-      { windowPosition: 'top-37 left-5', showOnDesktop: true },
+      { windowPosition: 'top-97 left-5', showOnDesktop: true },
     ),
-    d(
-      'Project Thesis BSc',
-      [
-        f(
-          'report.pdf',
-          {
-            type: 'pdf',
-            src: '/files/pa-bsc-report.pdf',
-          },
-          { enableDownload: true },
-        ),
-        f('sym-cross-att-v1-arch.png', {
-          type: 'image',
-          src: '/images/pa-bsc-arch-diagram-v1.png',
-        }),
-        f('sym-cross-att-v1-code.py', {
-          type: 'code',
-          content: paBscV1Code,
-          language: 'py',
-        }),
-        f('metrics-plot.png', {
-          type: 'image',
-          src: '/images/pa-bsc-plot-metrics-best-models.png',
-        }),
-        f('roc-curves.png', {
-          type: 'image',
-          src: '/images/pa-bsc-plot-roc-curves-best-models.png',
-        }),
-        f('tpp-performance.png', {
-          type: 'image',
-          src: '/images/pa-bsc-plot-tpp-performance-best-models.png',
-        }),
-      ],
-      { windowPosition: 'top-67 left-5', showOnDesktop: true },
-    ),
-    // TODO: add
-    // d('Bachelor Thesis', []),
   ],
   { icon: iconsSrc.folders.code, finderIcon: ClipboardListIcon },
 )
@@ -303,6 +303,14 @@ const otherFolder = d(
       'Certifications',
       [
         f(
+          'udemy-microservices.pdf',
+          {
+            type: 'pdf',
+            src: '/files/udemy-microservices.pdf',
+          },
+          { enableDownload: true },
+        ),
+        f(
           'codecademy-aspnet.pdf',
           {
             type: 'pdf',
@@ -323,14 +331,6 @@ const otherFolder = d(
           {
             type: 'pdf',
             src: '/files/codecademy-vuejs.pdf',
-          },
-          { enableDownload: true },
-        ),
-        f(
-          'udemy-microservices.pdf',
-          {
-            type: 'pdf',
-            src: '/files/udemy-microservices.pdf',
           },
           { enableDownload: true },
         ),
@@ -534,7 +534,7 @@ export const safariLinks: SafariLinkGroup[] = [
         href: 'https://microshield.ch',
       },
       {
-        name: 'EPS Software Engineering',
+        name: 'EPS SE',
         icon: 'https://www.eps.ch/favicon.ico',
         href: 'https://www.eps.ch',
       },
