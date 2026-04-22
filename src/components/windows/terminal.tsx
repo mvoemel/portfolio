@@ -200,7 +200,6 @@ function Terminal() {
         break
       }
 
-      // BUG: VITE_BUILD_DATE is not correctly displayed
       case 'uname':
         newLog.push({
           type: 'output',

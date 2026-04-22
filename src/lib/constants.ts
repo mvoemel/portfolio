@@ -191,6 +191,11 @@ const projectsFolder = d(
           },
           { enableDownload: true },
         ),
+        f('sym-cross-att-v1-code.py', {
+          type: 'code',
+          content: paBscV1Code,
+          language: 'py',
+        }),
         f(
           'sym-cross-att-v1-arch.png',
           {
@@ -199,11 +204,6 @@ const projectsFolder = d(
           },
           { enableDownload: true },
         ),
-        f('sym-cross-att-v1-code.py', {
-          type: 'code',
-          content: paBscV1Code,
-          language: 'py',
-        }),
         f('metrics-plot.png', {
           type: 'image',
           src: '/images/pa-bsc-plot-metrics-best-models.png',

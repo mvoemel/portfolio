@@ -45,6 +45,10 @@ jobs:
             type=raw,value=${{ github.event.inputs.tag }}
             type=sha,format=long
 
+      - name: Get build timestamp
+        id: timestamp
+        run: echo "date=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
@@ -55,6 +59,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             VITE_BUILD_SHA=${{ github.sha }}
-            VITE_BUILD_DATE=${{ github.run_started_at }}
+            VITE_BUILD_DATE=${{ steps.timestamp.outputs.date }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
