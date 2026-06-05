@@ -546,7 +546,7 @@ export const contactCards: ContactCard[] = [
   {
     name: 'Michael Voemel',
     profilePicture: '/images/profile-pic.png',
-    email: 'michael@voemel.org',
+    emailEncoded: 'bWljaGFlbEB2b2VtZWwub3Jn',
     github: 'https://github.com/mvoemel',
     linkedin: 'https://linkedin.com/in/mvoemel',
   },
