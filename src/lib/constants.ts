@@ -33,6 +33,7 @@ import moneymateDesc from '../assets/projects/moneymate-description.md?raw'
 import studyflowDesc from '../assets/projects/studyflow-description.md?raw'
 import websiteBuilderDesc from '../assets/projects/website-builder-description.md?raw'
 import paBscV1Code from '../assets/projects/pa-bsc-v1-code.py?raw'
+import baQoSControllerCode from '../assets/projects/ba-qos-controller-code.py?raw'
 import changelog from '../assets/other/changelog.md?raw'
 
 export const iconsSrc = {
@@ -169,13 +170,29 @@ const aboutFolder = d(
 const projectsFolder = d(
   'Projects',
   [
-    // TODO: add
     d(
       'Bachelor Thesis',
       [
-        f('TBA.txt', {
-          type: 'text',
-          content: 'TBA',
+        f('report.pdf', {
+          type: 'pdf',
+          src: '/files/ba-report.pdf',
+        }),
+        f(
+          'presentation.pdf',
+          {
+            type: 'pdf',
+            src: '/files/ba-presentation.pdf',
+          },
+          { enableDownload: true },
+        ),
+        f('qos-controller.py', {
+          type: 'code',
+          content: baQoSControllerCode,
+          language: 'py',
+        }),
+        f('cross-condition-comparison.png', {
+          type: 'image',
+          src: '/images/ba-plot-cross-condition.png',
         }),
       ],
       { windowPosition: 'top-7 left-5', showOnDesktop: true },
@@ -183,27 +200,19 @@ const projectsFolder = d(
     d(
       'Project Thesis BSc',
       [
-        f(
-          'report.pdf',
-          {
-            type: 'pdf',
-            src: '/files/pa-bsc-report.pdf',
-          },
-          { enableDownload: true },
-        ),
+        f('report.pdf', {
+          type: 'pdf',
+          src: '/files/pa-bsc-report.pdf',
+        }),
         f('sym-cross-att-v1-code.py', {
           type: 'code',
           content: paBscV1Code,
           language: 'py',
         }),
-        f(
-          'sym-cross-att-v1-arch.png',
-          {
-            type: 'image',
-            src: '/images/pa-bsc-arch-diagram-v1.png',
-          },
-          { enableDownload: true },
-        ),
+        f('sym-cross-att-v1-arch.png', {
+          type: 'image',
+          src: '/images/pa-bsc-arch-diagram-v1.png',
+        }),
         f('metrics-plot.png', {
           type: 'image',
           src: '/images/pa-bsc-plot-metrics-best-models.png',
