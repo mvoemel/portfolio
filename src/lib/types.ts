@@ -81,10 +81,10 @@ export interface WindowState {
 export type WindowConfig = Record<WindowType, WindowState>
 
 export type DockApp = {
-  type: WindowType
   name: string
   icon: string
-  canOpen: boolean
+  type?: WindowType
+  finderPath?: string
 }
 
 export type SafariLink = {

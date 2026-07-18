@@ -1,46 +1,47 @@
-import { useRef } from "react";
-import { Tooltip } from "react-tooltip";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useRef } from 'react'
+import { Tooltip } from 'react-tooltip'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
-import { useWindowStore } from "@/stores/window-store";
-import { dockApps, iconsSrc } from "@/lib/constants";
-import { cn } from "@/lib/util";
-import type { WindowType } from "@/lib/types";
+import { useWindowStore } from '@/stores/window-store'
+import { useFinderStore } from '@/stores/finder-store'
+import { dockApps, findItemByPath } from '@/lib/constants'
+import { cn } from '@/lib/util'
 
 export function Dock() {
-  const { windows, toggleWindow } = useWindowStore();
-  const dockRef = useRef<HTMLDivElement | null>(null);
+  const { windows, toggleWindow, openWindow } = useWindowStore()
+  const { changeDirectory } = useFinderStore()
+  const dockRef = useRef<HTMLDivElement | null>(null)
 
   useGSAP(() => {
-    const dock = dockRef.current;
-    if (!dock) return;
+    const dock = dockRef.current
+    if (!dock) return
 
-    const icons = dock.querySelectorAll(".dock-icon");
+    const icons = dock.querySelectorAll('.dock-icon')
 
     const animateIcons = (mouseX: number) => {
-      const { left } = dock.getBoundingClientRect();
+      const { left } = dock.getBoundingClientRect()
 
       icons.forEach((icon) => {
-        const { left: iconLeft, width } = icon.getBoundingClientRect();
-        const center = iconLeft - left + width / 2;
-        const distance = Math.abs(mouseX - center);
-        const intensity = Math.exp(-(distance ** 2.5) / 20_000);
+        const { left: iconLeft, width } = icon.getBoundingClientRect()
+        const center = iconLeft - left + width / 2
+        const distance = Math.abs(mouseX - center)
+        const intensity = Math.exp(-(distance ** 2.5) / 20_000)
 
         gsap.to(icon, {
           scale: 1 + 0.25 * intensity,
           y: -15 * intensity,
           duration: 0.2,
-          ease: "power1.out",
-        });
-      });
-    };
+          ease: 'power1.out',
+        })
+      })
+    }
 
     const handleMouseMove = (e: MouseEvent) => {
-      const { left } = dock.getBoundingClientRect();
+      const { left } = dock.getBoundingClientRect()
 
-      animateIcons(e.clientX - left);
-    };
+      animateIcons(e.clientX - left)
+    }
 
     const resetIcons = () =>
       icons.forEach((icon) =>
@@ -48,18 +49,18 @@ export function Dock() {
           scale: 1,
           y: 0,
           duration: 0.3,
-          ease: "power1.out",
+          ease: 'power1.out',
         }),
-      );
+      )
 
-    dock.addEventListener("mousemove", handleMouseMove);
-    dock.addEventListener("mouseleave", resetIcons);
+    dock.addEventListener('mousemove', handleMouseMove)
+    dock.addEventListener('mouseleave', resetIcons)
 
     return () => {
-      dock.removeEventListener("mousemove", handleMouseMove);
-      dock.removeEventListener("mouseleave", resetIcons);
-    };
-  }, []);
+      dock.removeEventListener('mousemove', handleMouseMove)
+      dock.removeEventListener('mouseleave', resetIcons)
+    }
+  }, [])
 
   return (
     <section
@@ -70,48 +71,34 @@ export function Dock() {
         ref={dockRef}
         className="bg-dock-bg border-dock-border backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5"
       >
-        {[
-          ...dockApps,
-          {
-            type: "trash" as WindowType, // Not actually a WindowType; just for eslint
-            name: "Trash",
-            icon: iconsSrc.folders.trash,
-            canOpen: false,
-          },
-        ].map(({ type, name, icon, canOpen }) => (
-          <div
-            key={`${type}-${name}`}
-            className="relative flex flex-col justify-center items-center"
-          >
+        {dockApps.map(({ type, name, icon, finderPath }) => (
+          <div key={name} className="relative flex flex-col justify-center items-center">
             <button
               type="button"
-              className={cn(
-                "dock-icon size-14 3xl:size-20 cursor-pointer",
-                !canOpen && "opacity-50",
-              )}
+              className="dock-icon size-14 3xl:size-20 cursor-pointer"
               aria-label={name}
               data-tooltip-id="dock-tooltip"
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
-              disabled={!canOpen}
-              onClick={() => canOpen && toggleWindow(type)}
+              onClick={() => {
+                if (finderPath) {
+                  const folder = findItemByPath(finderPath)
+                  if (folder) {
+                    changeDirectory(folder.id)
+                    openWindow('finder')
+                  }
+                } else if (type) {
+                  toggleWindow(type)
+                }
+              }}
             >
-              <img
-                src={icon}
-                alt={name}
-                loading="lazy"
-                className={cn(
-                  "object-cover object-center",
-                  !canOpen && "opacity-60",
-                )}
-              />
+              <img src={icon} alt={name} loading="lazy" className="object-cover object-center" />
             </button>
 
             <div
               className={cn(
-                "size-1 rounded-full",
-                (windows[type]?.isMinimized || windows[type]?.isOpen) &&
-                  "bg-text-tertiary",
+                'size-1 rounded-full',
+                type && (windows[type]?.isMinimized || windows[type]?.isOpen) && 'bg-text-tertiary',
               )}
             />
           </div>
@@ -124,5 +111,5 @@ export function Dock() {
         />
       </div>
     </section>
-  );
+  )
 }

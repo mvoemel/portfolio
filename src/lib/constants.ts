@@ -480,31 +480,31 @@ export const dockApps: DockApp[] = [
     type: 'finder',
     name: 'Finder',
     icon: iconsSrc.apps.finder,
-    canOpen: true,
   },
   {
     type: 'safari',
     name: 'Safari',
     icon: iconsSrc.apps.safari,
-    canOpen: true,
   },
   {
     type: 'maps',
     name: 'Maps',
     icon: iconsSrc.apps.maps,
-    canOpen: true,
   },
   {
     type: 'contacts',
     name: 'Contacts',
     icon: iconsSrc.apps.contacts,
-    canOpen: true,
   },
   {
     type: 'terminal',
     name: 'Terminal',
     icon: iconsSrc.apps.terminal,
-    canOpen: true,
+  },
+  {
+    name: 'Trash',
+    icon: iconsSrc.folders.trash,
+    finderPath: 'Trash',
   },
 ]
 
